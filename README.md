@@ -1,6 +1,6 @@
 # 🌹 Poetic Graveyard
 
-*"Where abandoned and ephemeral thoughts find eternal life."*
+*"Where abandoned words find eternal life."*
 
 Poetic Graveyard is a dark-academia inspired digital sanctuary built for writers, poets, storytellers, and dreamers. It serves as a literary archive where poetry, short stories, letters never sent,[...]
 
