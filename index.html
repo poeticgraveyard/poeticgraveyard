@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Poetic Graveyard — A sanctuary for poetry, stories, confessions, and words left unsaid.">
+  <title>Poetic Graveyard — Where Abandoned Thoughts Find Eternal Life</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#home" class="nav-logo"><span class="logo-icon">✦</span> Poetic Graveyard</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#explore">Explore</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#writers">Writers</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#socials">Socials</a></li>
+    <li><a href="#submit" class="nav-cta">Submit Work</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#home" onclick="closeMobile()">Home</a>
+  <a href="#explore" onclick="closeMobile()">Explore</a>
+  <a href="#categories" onclick="closeMobile()">Categories</a>
+  <a href="#writers" onclick="closeMobile()">Writers</a>
+  <a href="#community" onclick="closeMobile()">Community</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#socials" onclick="closeMobile()">Socials</a>
+  <a href="#submit" onclick="closeMobile()">Submit Work</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     #home — Hero
+════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-moon-layer">
+    <div class="moon-glow"></div>
+    <div class="moon-body"></div>
+    <div class="moon-cloud moon-cloud-1"></div>
+    <div class="moon-cloud moon-cloud-2"></div>
+  </div>
+  <div class="candle candle-left">
+    <div class="candle-body"></div>
+    <div class="candle-flame"><div class="flame-inner"></div></div>
+    <div class="candle-glow"></div>
+  </div>
+  <div class="candle candle-right">
+    <div class="candle-body"></div>
+    <div class="candle-flame"><div class="flame-inner"></div></div>
+    <div class="candle-glow"></div>
+  </div>
+  <canvas id="particle-canvas"></canvas>
+  <canvas id="fog-canvas"></canvas>
+  <div class="hero-fog-overlay"></div>
+  <div class="quote-popup" id="quotePopup">
+    <button class="quote-popup-close" onclick="closeQuote()">✕</button>
+    <div class="quote-popup-icon">📖</div>
+    <p class="quote-popup-text" id="quoteText"></p>
+    <p class="quote-popup-attr" id="quoteAttr"></p>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ A Digital Sanctuary for the Written Soul ✦</p>
+    <h1 class="hero-title">Poetic<br><em>Graveyard</em></h1>
+    <div class="hero-divider"><span></span><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L9.8 6.2H16L10.9 10L12.7 16L8 12.2L3.3 16L5.1 10L0 6.2H6.2L8 0Z"/></svg><span></span></div>
+    <p class="hero-subtitle">"Where abandoned thoughts find eternal life."</p>
+    <p class="hero-desc">A sanctuary for poetry, stories, confessions, and words left unsaid. Every voice deserves an echo.</p>
+    <div class="hero-buttons">
+      <button class="btn-primary" onclick="scrollToSection('submit')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Start Writing
+      </button>
+      <button class="btn-ghost" onclick="scrollToSection('explore')">Explore Works</button>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Descend</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     #about — About
+════════════════════════════════════════════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-content reveal">
+      <p class="section-label">What is Poetic Graveyard</p>
+      <h2 class="section-title">A <em>Sanctuary</em> for the Written Word</h2>
+      <p>Poetic Graveyard is a digital archive for poetry, short stories, letters never sent, confessions, essays, and midnight thoughts. It is a place where words that might otherwise be lost find a permanent home.</p>
+      <p>Every piece is treated as a literary artifact — preserved with care, presented with reverence, and made available for those who seek beauty in the written word.</p>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <button class="btn-primary" onclick="scrollToSection('explore')">Explore the Archive</button>
+        <button class="btn-ghost" onclick="scrollToSection('submit')">Submit Your Work</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     #categories — Categories
+════════════════════════════════════════════ -->
+<section class="categories-section" id="categories">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Browse by Form</p>
+      <h2 class="section-title">What Rests Here in <em>Ink & Shadow</em></h2>
+      <p class="section-subtitle">Every form of written expression has a home in this graveyard of beautiful thoughts.</p>
+    </div>
+    <div class="categories-grid" id="categories-container"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     #explore — Explore / Featured Works
+════════════════════════════════════════════ -->
+<section class="featured-section" id="explore">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-label">The Archive</p>
+        <h2 class="section-title">Featured <em>Works</em></h2>
+      </div>
+    </div>
+    <div id="works-container"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     #writers — Writers
+════════════════════════════════════════════ -->
+<section class="writers-section" id="writers">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">The Voices</p>
+      <h2 class="section-title">Featured <em>Writers</em></h2>
+      <p class="section-subtitle">The souls who have entrusted their words to this archive.</p>
+    </div>
+    <div class="writers-grid" id="writers-container"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     #community — Community
+════════════════════════════════════════════ -->
+<section class="community-section" id="community">
+  <div class="container">
+    <div class="community-inner reveal">
+      <p class="section-label">The Gathering</p>
+      <h2 class="section-title">A <em>Community</em> of Words</h2>
+      <p class="section-subtitle">Every archive begins with a single voice. Join the growing sanctuary of writers and readers.</p>
+      <div id="community-container"></div>
+      <div class="community-stats">
+        <div class="community-stat">
+          <span class="community-stat-num" data-count="0">0</span>
+          <span class="community-stat-label">Works Submitted</span>
+        </div>
+        <div class="community-stat">
+          <span class="community-stat-num" data-count="0">0</span>
+          <span class="community-stat-label">Writers</span>
+        </div>
+        <div class="community-stat">
+          <span class="community-stat-num" data-count="0">0</span>
+          <span class="community-stat-label">Readers</span>
+        </div>
+      </div>
+      <div class="community-cta-group">
+        <button class="btn-primary" onclick="scrollToSection('submit')">Share Your Words</button>
+        <button class="btn-ghost" onclick="scrollToSection('explore')">Read the Archive</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     Quote Band
+════════════════════════════════════════════ -->
+<div class="quote-band">
+  <p class="quote-text">"Some words die unheard. We bury them here, beneath ink and starlight, where they bloom in the dark."</p>
+  <p class="quote-attr">— The Poetic Graveyard Manifesto</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     #socials — Stay Connected
+════════════════════════════════════════════ -->
+<section class="socials-section" id="socials">
+  <div class="container">
+    <div class="socials-inner reveal">
+      <p class="section-label">Follow Along</p>
+      <h2 class="section-title">Stay <em>Connected</em></h2>
+      <p class="socials-desc">Follow Poetic Graveyard and its founder as the archive continues to grow into a sanctuary for writers and forgotten words.</p>
+      <div class="socials-buttons">
+        <a href="https://www.instagram.com/poeticgraveyard/" class="btn-social" target="_blank" rel="noopener noreferrer">
+          <span class="social-btn-icon">📖</span>
+          Poetic Graveyard Instagram
+        </a>
+        <a href="https://www.instagram.com/thetorturedshowgirl/" class="btn-social btn-social-secondary" target="_blank" rel="noopener noreferrer">
+          <span class="social-btn-icon">🌹</span>
+          Founder Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     #submit — Submit Work
+════════════════════════════════════════════ -->
+<section class="submit-section" id="submit">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Contribute</p>
+      <h2 class="section-title">Submit Your <em>Work</em></h2>
+      <p class="section-subtitle">Every voice deserves an echo. Share your words with the archive.</p>
+    </div>
+    <div class="submit-grid">
+      <div class="submit-left reveal">
+        <h3>"Your words deserve to be buried here."</h3>
+        <p>Whether it is a poem written at 3am, a letter you never sent, or a story that has lived only in your mind — this archive is its home.</p>
+        <ul class="submit-features">
+          <li>All forms of written expression welcome</li>
+          <li>Anonymous submissions accepted</li>
+          <li>Every piece treated as a literary artifact</li>
+          <li>Preserved with care and reverence</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <form id="submitForm" onsubmit="handlePublish(event)">
+          <div class="form-group">
+            <label for="penName">Pen Name / Author Name *</label>
+            <input type="text" id="penName" placeholder="How shall we remember you?" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" placeholder="For correspondence only">
+          </div>
+          <div class="form-group">
+            <label for="title">Title of Work *</label>
+            <input type="text" id="title" placeholder="Give your work a name">
+          </div>
+          <div class="form-group">
+            <label for="category">Category *</label>
+            <select id="category">
+              <option value="">Select a category</option>
+              <option value="poetry">Poetry</option>
+              <option value="stories">Short Stories</option>
+              <option value="letters">Letters Never Sent</option>
+              <option value="confessions">Confessions</option>
+              <option value="essays">Essays & Journals</option>
+              <option value="midnight">Midnight Thoughts</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="content">Your Work *</label>
+            <textarea id="content" placeholder="Begin here…"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Tags</label>
+            <div class="tags-input" onclick="this.querySelector('input').focus()">
+              <span id="tagsContainer"></span>
+              <input type="text" placeholder="Add tags…" onkeydown="handleTag(event)" aria-label="Add tag">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-draft" onclick="showToast('Draft saved ✦')">Save Draft</button>
+            <button type="submit" class="btn-publish">Submit to the Archive</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">✦ Poetic Graveyard</div>
+      <p class="footer-tagline">"Some words die unheard. We bury them here."</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/poeticgraveyard/" class="social-link" aria-label="Poetic Graveyard Instagram" target="_blank" rel="noopener noreferrer">In</a>
+        <a href="https://www.instagram.com/thetorturedshowgirl/" class="social-link" aria-label="Founder Instagram" target="_blank" rel="noopener noreferrer">🌹</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#explore">Explore</a></li>
+        <li><a href="#writers">Writers</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#submit">Submit Work</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Categories</div>
+      <ul class="footer-links">
+        <li><a href="#categories">Poetry</a></li>
+        <li><a href="#categories">Short Stories</a></li>
+        <li><a href="#categories">Letters Never Sent</a></li>
+        <li><a href="#categories">Midnight Thoughts</a></li>
+        <li><a href="#categories">Confessions</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#socials">Socials</a></li>
+        <li><a href="#submit">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">© 2026 Poetic Graveyard. A sanctuary, not a stage.</div>
+    <div class="footer-epitaph">"Every word buried here still breathes."</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>

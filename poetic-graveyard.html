@@ -1,0 +1,3817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Poetic Graveyard — A sanctuary for poetry, stories, confessions, and words left unsaid.">
+<title>Poetic Graveyard — Where Abandoned Thoughts Find Eternal Life</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #130f0b;
+    --charcoal: #231e1a;
+    --charcoal-mid: #2e2823;
+    --charcoal-light: #3c352f;
+    --smoke: #5c554f;
+    --ash: #a8a29d;
+    --dust: #c8c2bc;
+    --mist: #e5e0dc;
+    --parchment: #F7F1EA;
+    --cream: #FBF7F2;
+    --burgundy: #8B1E3F;
+    --burgundy-dark: #5C1828;
+    --burgundy-light: #B84D65;
+    --wine: #943045;
+    --crimson: #C4677A;
+    --rose-muted: #DC8494;
+    --gold: #DABA84;
+    --gold-light: #E6D3A3;
+    --serif: 'Cormorant Garamond', 'Georgia', serif;
+    --display: 'Playfair Display', 'Georgia', serif;
+    --body: 'Crimson Pro', 'Georgia', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--parchment);
+    font-family: var(--body);
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  ::selection { background: var(--burgundy); color: var(--cream); }
+
+  /* ── CUSTOM SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--charcoal); }
+  ::-webkit-scrollbar-thumb { background: var(--burgundy); border-radius: 3px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 2.5rem;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+    border-bottom: 1px solid transparent;
+  }
+
+  nav.scrolled {
+    background: rgba(10, 8, 6, 0.92);
+    backdrop-filter: blur(18px);
+    border-color: rgba(139, 30, 63, 0.4);
+  }
+
+  .nav-logo {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--cream);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nav-logo .logo-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--burgundy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    color: var(--dust);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0; right: 0;
+    height: 1px;
+    background: var(--burgundy-light);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.55rem 1.4rem;
+    background: var(--burgundy);
+    color: var(--cream) !important;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--burgundy-light) !important; transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--parchment);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 100px 2rem 60px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139, 30, 63, 0.44) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 50% 50%, rgba(139, 30, 63, 0.20) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 80% 20%, rgba(230, 211, 163, 0.16) 0%, transparent 60%),
+                radial-gradient(circle at 3% 80%, rgba(255, 200, 80, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 97% 80%, rgba(255, 200, 80, 0.10) 0%, transparent 40%),
+                radial-gradient(ellipse 70% 50% at 50% 55%, rgba(196, 103, 122, 0.12) 0%, transparent 60%),
+                var(--black);
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(139, 30, 63, 0.04) 60px, rgba(139, 30, 63, 0.04) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(139, 30, 63, 0.03) 80px, rgba(139, 30, 63, 0.03) 81px);
+    pointer-events: none;
+  }
+
+  #particle-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose-muted);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 1.1s 0.5s forwards, titleBreathe 6s ease-in-out 2s infinite;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--rose-muted);
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+  }
+
+  .hero-divider span {
+    display: block;
+    width: 70px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--crimson));
+    box-shadow: 0 0 12px rgba(196, 103, 122, 0.5), 0 0 24px rgba(196, 103, 122, 0.2);
+  }
+
+  .hero-divider span:last-child {
+    background: linear-gradient(to left, transparent, var(--crimson));
+    box-shadow: 0 0 12px rgba(196, 103, 122, 0.5), 0 0 24px rgba(196, 103, 122, 0.2);
+  }
+
+  .hero-divider svg { color: var(--burgundy); }
+
+  .hero-subtitle {
+    font-family: var(--display);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--parchment);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(247, 241, 234, 0.15);
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+  }
+
+  .hero-desc {
+    font-family: var(--body);
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--dust);
+    text-shadow: 0 0 12px rgba(200, 194, 188, 0.08);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 1.1s forwards;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s 1.3s forwards;
+  }
+
+  .btn-primary {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.2rem;
+    background: linear-gradient(135deg, var(--burgundy), #9E2848);
+    color: var(--cream);
+    border: 1px solid var(--burgundy-light);
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 24px rgba(139, 30, 63, 0.5), 0 0 40px rgba(139, 30, 63, 0.15);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--burgundy-light), #C85570);
+    border-color: var(--crimson);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(139, 30, 63, 0.65), 0 0 60px rgba(196, 103, 122, 0.2);
+  }
+
+  .btn-ghost {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.2rem;
+    background: rgba(139, 30, 63, 0.06);
+    color: var(--parchment);
+    border: 1px solid rgba(200, 194, 188, 0.3);
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--cream);
+    color: var(--cream);
+    transform: translateY(-2px);
+    background: rgba(139, 30, 63, 0.18);
+    box-shadow: 0 0 20px rgba(139, 30, 63, 0.12);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeIn 1s 2s forwards;
+  }
+
+  .hero-scroll span {
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--burgundy), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 2rem; }
+
+  .container { max-width:none; margin:0; }
+
+  .section-label {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose-muted);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(to right, var(--crimson), transparent);
+    box-shadow: 0 0 10px rgba(196, 103, 122, 0.45), 0 0 20px rgba(196, 103, 122, 0.15);
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--rose-muted); }
+
+  .section-subtitle {
+    font-family: var(--body);
+    font-size: 1.05rem;
+    color: var(--dust);
+    max-width: 520px;
+    line-height: 1.8;
+  }
+
+  /* ── CATEGORIES ── */
+  .categories-section { background: var(--charcoal); }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    margin-top: 3.5rem;
+    border: 1.5px solid var(--charcoal-light);
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .cat-card {
+    background: var(--charcoal-mid);
+    padding: 2.2rem 2rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+  }
+
+  .cat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--burgundy);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cat-card:hover { background: var(--charcoal-light); }
+  .cat-card:hover::before { transform: scaleY(1); }
+  .cat-card:hover .cat-icon { transform: scale(1.15) rotate(-5deg); }
+
+  .cat-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .cat-title {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .cat-desc {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--dust);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .cat-count {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose-muted);
+  }
+
+  /* ── FEATURED WORKS ── */
+  .featured-section { background: var(--black); }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .view-all {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s, gap 0.3s;
+    white-space: nowrap;
+  }
+
+  .view-all:hover { color: var(--crimson); gap: 0.8rem; }
+
+  .masonry-grid {
+    columns: 3;
+    column-gap: 1.5rem;
+  }
+
+  @media (max-width: 900px) { .masonry-grid { columns: 2; } }
+  @media (max-width: 580px) { .masonry-grid { columns: 1; } }
+
+  .work-card {
+    break-inside: avoid;
+    background: var(--charcoal);
+    border: 1px solid var(--charcoal-light);
+    border-radius: 3px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(139, 30, 63, 0.12), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .work-card:hover {
+    border-color: rgba(139, 30, 63, 0.55);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(139, 30, 63, 0.08);
+  }
+
+  .work-card:hover::after { opacity: 1; }
+
+  .work-card-cat {
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-muted);
+    margin-bottom: 0.8rem;
+  }
+
+  .work-card-title {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+  }
+
+  .work-card-excerpt {
+    font-family: var(--body);
+    font-size: 0.98rem;
+    color: var(--dust);
+    line-height: 1.75;
+    font-style: italic;
+    margin-bottom: 1.2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .work-card-excerpt::before {
+    content: '\201C';
+    font-size: 3rem;
+    color: var(--burgundy);
+    opacity: 0.4;
+    position: absolute;
+    top: -0.8rem;
+    left: -0.5rem;
+    font-family: var(--display);
+    line-height: 1;
+  }
+
+  .work-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--charcoal-light);
+    position: relative;
+    z-index: 1;
+  }
+
+  .work-author {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .work-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--burgundy-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    color: var(--rose-muted);
+    flex-shrink: 0;
+    letter-spacing: 0;
+  }
+
+  .work-author-name {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    color: var(--dust);
+  }
+
+  .work-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .work-time {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    color: var(--smoke);
+    letter-spacing: 0.05em;
+  }
+
+  .work-actions {
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  .action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--smoke);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.3s;
+    font-family: var(--serif);
+    padding: 0.2rem;
+  }
+
+  .action-btn:hover { color: var(--rose-muted); }
+  .action-btn.liked { color: var(--crimson); }
+  .action-btn svg { width: 14px; height: 14px; }
+
+  /* ── FEATURED WRITERS ── */
+  .writers-section {
+    background: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .writers-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 30, 63, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .writers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .writer-card {
+    background: var(--charcoal-mid);
+    border: 1px solid var(--charcoal-light);
+    border-radius: 3px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.35s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .writer-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--burgundy), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .writer-card:hover {
+    border-color: rgba(139, 30, 63, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35), 0 0 25px rgba(139, 30, 63, 0.08);
+  }
+
+  .writer-card:hover::before { transform: scaleX(1); }
+
+  .writer-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 1.2rem;
+    border: 2px solid var(--burgundy-dark);
+    background: var(--charcoal-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 1.5rem;
+    color: var(--rose-muted);
+    transition: border-color 0.3s;
+  }
+
+  .writer-card:hover .writer-avatar { border-color: var(--burgundy-light); }
+
+  .writer-name {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .writer-handle {
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    color: var(--rose-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+  }
+
+  .writer-bio {
+    font-family: var(--body);
+    font-size: 0.88rem;
+    color: var(--dust);
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+
+  .writer-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--charcoal-light);
+  }
+
+  .writer-stat {
+    text-align: center;
+  }
+
+  .writer-stat-num {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    color: var(--cream);
+    display: block;
+  }
+
+  .writer-stat-label {
+    font-family: var(--serif);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--smoke);
+  }
+
+  .follow-btn {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.55rem 1rem;
+    background: transparent;
+    border: 1px solid var(--smoke);
+    border-radius: 2px;
+    color: var(--dust);
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .follow-btn:hover {
+    background: var(--burgundy);
+    border-color: var(--burgundy);
+    color: var(--cream);
+  }
+
+  .follow-btn.following {
+    background: var(--burgundy-dark);
+    border-color: var(--burgundy);
+    color: var(--rose-muted);
+  }
+
+  /* ── SUBMISSION PORTAL ── */
+  .submit-section { background: var(--black); }
+
+  .submit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 3.5rem;
+    align-items: start;
+  }
+
+  @media (max-width: 820px) { .submit-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+  .submit-left h3 {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .submit-left p {
+    font-family: var(--body);
+    color: var(--ash);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .submit-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .submit-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--dust);
+  }
+
+  .submit-features li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--burgundy);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .form-group {
+    margin-bottom: 1.4rem;
+  }
+
+  label {
+    display: block;
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 0.5rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--charcoal);
+    border: 1px solid var(--charcoal-light);
+    border-radius: 2px;
+    color: var(--parchment);
+    font-family: var(--body);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    appearance: none;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--burgundy);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 160px;
+    line-height: 1.7;
+  }
+
+  select option { background: var(--charcoal-mid); }
+
+  .tags-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.65rem 0.85rem;
+    background: var(--charcoal);
+    border: 1px solid var(--charcoal-light);
+    border-radius: 2px;
+    min-height: 48px;
+    cursor: text;
+    transition: border-color 0.3s;
+  }
+
+  .tags-input:focus-within { border-color: var(--burgundy); }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.65rem;
+    background: var(--burgundy-dark);
+    border-radius: 2px;
+    font-family: var(--serif);
+    font-size: 0.78rem;
+    color: var(--rose-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .tag button {
+    background: none;
+    border: none;
+    color: var(--rose-muted);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .tag button:hover { opacity: 1; }
+
+  .tags-input input {
+    border: none;
+    background: none;
+    color: var(--parchment);
+    font-family: var(--body);
+    font-size: 0.95rem;
+    outline: none;
+    flex: 1;
+    min-width: 80px;
+    padding: 0.1rem 0;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .btn-draft {
+    padding: 0.85rem 1.8rem;
+    background: transparent;
+    border: 1px solid var(--smoke);
+    border-radius: 2px;
+    color: var(--dust);
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-draft:hover {
+    border-color: var(--dust);
+    color: var(--cream);
+  }
+
+  .btn-publish {
+    padding: 0.85rem 2.2rem;
+    background: var(--burgundy);
+    border: 1px solid var(--burgundy);
+    border-radius: 2px;
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+  }
+
+  .btn-publish:hover {
+    background: var(--burgundy-light);
+    border-color: var(--burgundy-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(107, 30, 46, 0.4);
+  }
+
+  /* ── SEARCH ── */
+  .search-section {
+    background: var(--charcoal);
+    padding: 4rem 2rem;
+  }
+
+  .search-bar {
+    max-width: 700px;
+    margin: 2.5rem auto 0;
+    position: relative;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 1.1rem 1.5rem 1.1rem 3.5rem;
+    background: var(--charcoal-mid);
+    border: 1px solid var(--charcoal-light);
+    border-radius: 3px;
+    color: var(--parchment);
+    font-family: var(--body);
+    font-size: 1.05rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .search-input:focus {
+    border-color: var(--burgundy);
+    box-shadow: 0 0 0 3px rgba(139, 30, 63, 0.2);
+  }
+
+  .search-input::placeholder { color: var(--smoke); }
+
+  .search-icon {
+    position: absolute;
+    left: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ash);
+    pointer-events: none;
+  }
+
+  .search-filters {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .filter-pill {
+    padding: 0.35rem 1rem;
+    background: transparent;
+    border: 1px solid var(--charcoal-light);
+    border-radius: 100px;
+    color: var(--ash);
+    font-family: var(--serif);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+  }
+
+  .filter-pill:hover, .filter-pill.active {
+    background: var(--burgundy-dark);
+    border-color: var(--burgundy);
+    color: var(--rose-muted);
+  }
+
+  .search-suggestions {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0; right: 0;
+    background: var(--charcoal-mid);
+    border: 1px solid var(--charcoal-light);
+    border-radius: 3px;
+    z-index: 50;
+    overflow: hidden;
+  }
+
+  .search-suggestions.visible { display: block; }
+
+  .suggestion-item {
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid var(--charcoal-light);
+  }
+
+  .suggestion-item:last-child { border-bottom: none; }
+  .suggestion-item:hover { background: var(--charcoal-light); }
+
+  .suggestion-type {
+    font-family: var(--serif);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose-muted);
+    min-width: 50px;
+  }
+
+  .suggestion-text {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--dust);
+  }
+
+  /* ── COMMUNITY ── */
+  .community-section {
+    background: var(--black);
+    text-align: center;
+  }
+
+  .community-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .community-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+  }
+
+  .community-stat {
+    text-align: center;
+  }
+
+  .community-stat-num {
+    font-family: var(--display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cream);
+    display: block;
+    line-height: 1;
+  }
+
+  .community-stat-label {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-top: 0.4rem;
+    display: block;
+  }
+
+  .community-cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ── QUOTE BAND ── */
+  .quote-band {
+    background: var(--burgundy-dark);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quote-band::before, .quote-band::after {
+    content: '\201C';
+    position: absolute;
+    font-family: var(--display);
+    font-size: 20rem;
+    color: rgba(139, 30, 63, 0.32);
+    line-height: 1;
+    top: -3rem;
+  }
+
+  .quote-band::before { left: -2rem; }
+  .quote-band::after { content: '\201D'; right: -2rem; top: auto; bottom: -5rem; }
+
+  .quote-text {
+    font-family: var(--display);
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+    font-style: italic;
+    color: var(--cream);
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    position: relative;
+    z-index: 1;
+    line-height: 1.4;
+  }
+
+  .quote-attr {
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 4rem 2rem 2rem;
+    border-top: 1px solid var(--charcoal-light);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width:none;
+    margin:0;
+  }
+
+  @media (max-width: 880px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 520px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  .footer-brand {}
+
+  .footer-logo {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-tagline {
+    font-family: var(--body);
+    font-style: italic;
+    color: var(--dust);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 260px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--charcoal-light);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ash);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: var(--serif);
+    transition: all 0.3s;
+    letter-spacing: 0;
+  }
+
+  .social-link:hover {
+    border-color: var(--burgundy);
+    color: var(--rose-muted);
+    background: var(--burgundy-dark);
+    box-shadow: 0 0 12px rgba(139, 30, 63, 0.35), 0 0 24px rgba(139, 30, 63, 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER EXTENDED SOCIAL ── */
+  .footer-extended-social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .footer-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--charcoal-light);
+    border-radius: 2px;
+    color: var(--dust);
+    font-family: var(--serif);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    width: fit-content;
+  }
+
+  .footer-social-btn:hover {
+    border-color: var(--burgundy);
+    color: var(--rose-muted);
+    background: var(--burgundy-dark);
+    box-shadow: 0 0 12px rgba(139, 30, 63, 0.3), 0 0 24px rgba(139, 30, 63, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .footer-social-btn .social-icon {
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+
+  /* ── CONNECT WITH US ── */
+  .connect-section {
+    background: var(--charcoal);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .connect-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 30, 63, 0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  .connect-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .connect-subtitle {
+    font-family: var(--body);
+    font-size: 1.05rem;
+    color: var(--dust);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .connect-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .connect-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1rem 2.2rem;
+    background: var(--burgundy);
+    color: var(--cream);
+    border: 1px solid var(--burgundy-light);
+    border-radius: 4px;
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(139, 30, 63, 0.35);
+    cursor: pointer;
+    min-width: 280px;
+    justify-content: center;
+  }
+
+  .connect-btn:hover {
+    background: var(--burgundy-light);
+    border-color: var(--crimson);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(139, 30, 63, 0.5), 0 0 48px rgba(139, 30, 63, 0.15);
+    color: var(--cream);
+  }
+
+  .connect-btn .btn-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 600px) {
+    .connect-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    .connect-btn {
+      width: 100%;
+      max-width: 340px;
+    }
+  }
+
+  /* ── FOUNDER SECTION ── */
+  .founder-section {
+    background: var(--charcoal);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founder-section::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 30, 63, 0.10), transparent 70%);
+    pointer-events: none;
+  }
+
+  .founder-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .founder-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    border: 2px solid var(--burgundy);
+    background: var(--charcoal-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 2rem;
+    color: var(--rose-muted);
+    box-shadow: 0 0 30px rgba(139, 30, 63, 0.2);
+  }
+
+  .founder-name {
+    font-family: var(--display);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .founder-role {
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-muted);
+    margin-bottom: 1rem;
+  }
+
+  .founder-bio {
+    font-family: var(--body);
+    font-size: 1.05rem;
+    color: var(--dust);
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 2rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .founder-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    background: transparent;
+    border: 1px solid var(--burgundy);
+    border-radius: 2px;
+    color: var(--parchment);
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .founder-cta:hover {
+    background: var(--burgundy);
+    border-color: var(--burgundy-light);
+    color: var(--cream);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(139, 30, 63, 0.45), 0 0 40px rgba(139, 30, 63, 0.12);
+  }
+
+  .founder-cta .social-icon {
+    font-size: 1rem;
+  }
+
+  /* ── STAY CONNECTED SECTION ── */
+  .stay-connected-section {
+    background: var(--black);
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stay-connected-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(139, 30, 63, 0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .stay-connected-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stay-connected-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .stay-connected-divider span {
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--crimson));
+    box-shadow: 0 0 12px rgba(196, 103, 122, 0.5), 0 0 24px rgba(196, 103, 122, 0.2);
+  }
+
+  .stay-connected-divider span:last-child {
+    background: linear-gradient(to left, transparent, var(--crimson));
+    box-shadow: 0 0 12px rgba(196, 103, 122, 0.5), 0 0 24px rgba(196, 103, 122, 0.2);
+  }
+
+  .stay-connected-divider svg {
+    color: var(--burgundy);
+    flex-shrink: 0;
+  }
+
+  .stay-connected-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+
+  .stay-connected-desc {
+    font-family: var(--body);
+    font-size: 1.05rem;
+    color: var(--dust);
+    max-width: 520px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+  }
+
+  .stay-connected-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stay-connected-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1.05rem 2.4rem;
+    background: linear-gradient(135deg, var(--burgundy), #9E2848);
+    color: var(--cream);
+    border: 1px solid var(--burgundy-light);
+    border-radius: 50px;
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+      0 4px 24px rgba(139, 30, 63, 0.5),
+      0 0 40px rgba(139, 30, 63, 0.15);
+    cursor: pointer;
+    min-width: 280px;
+    justify-content: center;
+    position: relative;
+  }
+
+  .stay-connected-btn::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, rgba(184, 77, 101, 0.3), rgba(139, 30, 63, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: -1;
+  }
+
+  .stay-connected-btn:hover {
+    background: linear-gradient(135deg, var(--burgundy-light), #C85570);
+    border-color: var(--crimson);
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 36px rgba(139, 30, 63, 0.65),
+      0 0 60px rgba(196, 103, 122, 0.2),
+      0 0 80px rgba(139, 30, 63, 0.12);
+    color: var(--cream);
+  }
+
+  .stay-connected-btn:hover::before {
+    opacity: 1;
+  }
+
+  .stay-connected-btn .btn-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 600px) {
+    .stay-connected-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    .stay-connected-btn {
+      width: 100%;
+      max-width: 340px;
+    }
+  }
+
+  .footer-col-title {
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    color: var(--dust);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    max-width:none;
+    margin:0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--charcoal-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-bottom-left {
+    font-family: var(--serif);
+    font-size: 0.78rem;
+    color: var(--smoke);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-epitaph {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ash);
+    text-align: right;
+  }
+
+  /* ── TOAST NOTIFICATION ── */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--charcoal-mid);
+    border: 1px solid var(--burgundy);
+    border-radius: 3px;
+    padding: 0.8rem 1.4rem;
+    color: var(--parchment);
+    font-family: var(--body);
+    font-size: 0.9rem;
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE NAV ── */
+  .mobile-menu {
+    position: fixed;
+    top: 70px; left: 0; right: 0; bottom: 0;
+    background: rgba(10, 8, 6, 0.97);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-menu.open { transform: translateX(0); }
+
+  .mobile-menu a {
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--mist);
+    text-decoration: none;
+    transition: color 0.3s;
+    letter-spacing: 0.03em;
+  }
+
+  .mobile-menu a:hover { color: var(--cream); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 4rem 1.2rem; }
+    .hero { padding: 100px 1.2rem 60px; }
+    .hero-title { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+    .community-stats { gap: 2.5rem; }
+  }
+
+  /* ── GRAIN OVERLAY ── */
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    animation: grainShift 0.5s steps(1) infinite;
+  }
+
+  @keyframes grainShift {
+    0%  { background-position: 0 0; }
+    20% { background-position: -30px 15px; }
+    40% { background-position: 15px -20px; }
+    60% { background-position: -10px 30px; }
+    80% { background-position: 25px -10px; }
+    100%{ background-position: 0 0; }
+  }
+
+  /* ── VIGNETTE ── */
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 50%, rgba(5,3,2,0.35) 100%);
+  }
+
+  /* ── MOON ── */
+  .hero-moon-layer {
+    position: absolute;
+    top: 60px; right: 10%;
+    width: 140px; height: 140px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .moon-glow {
+    position: absolute;
+    inset: -80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(230, 211, 163, 0.32) 0%, rgba(218, 186, 132, 0.16) 30%, rgba(212, 176, 122, 0.06) 55%, transparent 75%);
+    animation: moonPulse 6s ease-in-out infinite;
+  }
+
+  .moon-body {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 38%, #E6D3A3 0%, #DABA84 35%, #D4B07A 60%, #B8965A 100%);
+    box-shadow: 0 0 60px rgba(230, 211, 163, 0.5), 0 0 120px rgba(230, 211, 163, 0.25), 0 0 200px rgba(218, 186, 132, 0.10), inset -8px -8px 20px rgba(0,0,0,0.25);
+    opacity: 0.95;
+  }
+
+  .moon-cloud {
+    position: absolute;
+    border-radius: 80px;
+    background: rgba(22, 17, 14, 0.72);
+    filter: blur(6px);
+  }
+
+  .moon-cloud-1 {
+    width: 120px; height: 38px;
+    top: 28px; left: -20px;
+    animation: cloudDrift1 18s linear infinite;
+  }
+
+  .moon-cloud-2 {
+    width: 90px; height: 30px;
+    top: 55px; left: 30px;
+    opacity: 0.6;
+    animation: cloudDrift2 24s linear infinite;
+  }
+
+  @keyframes moonPulse {
+    0%,100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  @keyframes cloudDrift1 {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(60px); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes cloudDrift2 {
+    0% { transform: translateX(20px); }
+    50% { transform: translateX(-30px); }
+    100% { transform: translateX(20px); }
+  }
+
+  /* ── CANDLES ── */
+  .candle {
+    position: absolute;
+    bottom: 60px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .candle-left  { left: 3%; }
+  .candle-right { right: 3%; }
+
+  .candle-body {
+    width: 8px; height: 48px;
+    background: linear-gradient(to bottom, #d4c8a8, #b0a070, #8a7a50);
+    border-radius: 3px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  .candle-flame {
+    width: 10px; height: 18px;
+    margin: 0 auto -2px;
+    position: relative;
+    border-radius: 50% 50% 30% 30%;
+    background: radial-gradient(ellipse at 50% 70%, #fff8e0, #ffcc44 40%, #ff8800 80%, transparent);
+    animation: flameDance 1.8s ease-in-out infinite;
+    filter: blur(0.5px);
+  }
+
+  .flame-inner {
+    position: absolute;
+    inset: 3px 3px 0;
+    border-radius: 50% 50% 30% 30%;
+    background: radial-gradient(ellipse at 50% 80%, #fff, #fff8c0 60%, transparent);
+    opacity: 0.8;
+    animation: flameDance 1.2s ease-in-out infinite reverse;
+  }
+
+  .candle-glow {
+    position: absolute;
+    top: -40px; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,200,80,0.28) 0%, rgba(230,211,163,0.10) 50%, transparent 75%);
+    animation: glowPulse 1.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes flameDance {
+    0%,100% { transform: scaleX(1) scaleY(1) rotate(-1deg); }
+    25%  { transform: scaleX(0.88) scaleY(1.08) rotate(2deg); }
+    50%  { transform: scaleX(1.08) scaleY(0.94) rotate(-2deg); }
+    75%  { transform: scaleX(0.94) scaleY(1.05) rotate(1deg); }
+  }
+
+  @keyframes glowPulse {
+    0%,100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+  }
+
+  /* ── FOG CANVAS ── */
+  #fog-canvas {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* ── QUOTE POPUP ── */
+  .quote-popup {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.85);
+    background: rgba(24, 18, 15, 0.97);
+    border: 1px solid rgba(139, 30, 63, 0.5);
+    border-radius: 4px;
+    padding: 2.5rem;
+    max-width: 420px;
+    width: 90%;
+    z-index: 20;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.4s;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 50px rgba(139,30,63,0.2);
+  }
+
+  .quote-popup.visible {
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .quote-popup-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: none; border: none;
+    color: var(--ash); cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+
+  .quote-popup-close:hover { color: var(--cream); }
+
+  .quote-popup-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .quote-popup-text {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+  }
+
+  .quote-popup-attr {
+    font-family: var(--serif);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose-muted);
+  }
+
+  /* ── TITLE GLOW ── */
+  .hero-title {
+    text-shadow: 0 0 20px rgba(220, 132, 148, 0.45), 0 0 40px rgba(212, 119, 138, 0.5), 0 0 80px rgba(196, 103, 122, 0.55), 0 0 140px rgba(139, 30, 63, 0.5), 0 0 220px rgba(139, 30, 63, 0.25), 0 0 320px rgba(107, 30, 46, 0.10);
+  }
+
+  @keyframes titleBreathe {
+    0%, 100% { transform: scale(1); text-shadow: 0 0 20px rgba(220, 132, 148, 0.45), 0 0 40px rgba(212, 119, 138, 0.5), 0 0 80px rgba(196, 103, 122, 0.55), 0 0 140px rgba(139, 30, 63, 0.5), 0 0 220px rgba(139, 30, 63, 0.25), 0 0 320px rgba(107, 30, 46, 0.10); }
+    50% { transform: scale(1.008); text-shadow: 0 0 30px rgba(220, 132, 148, 0.6), 0 0 60px rgba(212, 119, 138, 0.65), 0 0 110px rgba(196, 103, 122, 0.7), 0 0 180px rgba(139, 30, 63, 0.6), 0 0 280px rgba(139, 30, 63, 0.35), 0 0 400px rgba(107, 30, 46, 0.15); }
+  }
+
+  .hero-content {
+    animation: contentFloat 8s ease-in-out 2s infinite;
+  }
+
+  @keyframes contentFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  /* ── BURGUNDY FOG OVERLAY ── */
+  .hero-fog-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(139, 30, 63, 0.16) 0%, rgba(139, 30, 63, 0.08) 20%, rgba(139, 30, 63, 0.03) 40%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Mobile: reduce heavy effects */
+  @media (max-width: 768px) {
+    .hero-moon-layer { width: 80px; height: 80px; top: 80px; right: 5%; }
+    .candle { display: none; }
+    .hero-grain { display: none; }
+    .hero-title { animation: fadeUp 1.1s 0.5s forwards; }
+    .hero-content { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="logo-icon">✦</span>
+    Poetic Graveyard
+  </a>
+  <ul class="nav-links">
+    <li><a href="#categories">Explore</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#writers">Featured Writers</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#socials">Socials</a></li>
+    <li><a href="#submit" class="nav-cta">Submit Work</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#categories" onclick="closeMobile()">Explore</a>
+  <a href="#categories" onclick="closeMobile()">Categories</a>
+  <a href="#writers" onclick="closeMobile()">Writers</a>
+  <a href="#community" onclick="closeMobile()">Community</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#socials" onclick="closeMobile()">Socials</a>
+  <a href="#submit" onclick="closeMobile()">Submit Work</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <!-- Grain overlay -->
+  <div class="hero-grain"></div>
+  <!-- Vignette -->
+  <div class="hero-vignette"></div>
+  <!-- Moon layer -->
+  <div class="hero-moon-layer" id="moonLayer">
+    <div class="moon-glow"></div>
+    <div class="moon-body"></div>
+    <div class="moon-cloud moon-cloud-1"></div>
+    <div class="moon-cloud moon-cloud-2"></div>
+  </div>
+  <!-- Candles -->
+  <div class="candle candle-left" id="candleLeft">
+    <div class="candle-body"></div>
+    <div class="candle-flame">
+      <div class="flame-inner"></div>
+    </div>
+    <div class="candle-glow"></div>
+  </div>
+  <div class="candle candle-right" id="candleRight">
+    <div class="candle-body"></div>
+    <div class="candle-flame">
+      <div class="flame-inner"></div>
+    </div>
+    <div class="candle-glow"></div>
+  </div>
+  <!-- Main atmospheric canvas -->
+  <canvas id="particle-canvas"></canvas>
+  <!-- Fog layer canvas -->
+  <canvas id="fog-canvas"></canvas>
+  <!-- Burgundy fog overlay -->
+  <div class="hero-fog-overlay"></div>
+  <!-- Quote popup -->
+  <div class="quote-popup" id="quotePopup">
+    <button class="quote-popup-close" onclick="closeQuote()">✕</button>
+    <div class="quote-popup-icon">📖</div>
+    <p class="quote-popup-text" id="quoteText"></p>
+    <p class="quote-popup-attr" id="quoteAttr"></p>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ A Digital Sanctuary for the Written Soul ✦</p>
+    <h1 class="hero-title">Poetic<br><em>Graveyard</em></h1>
+    <div class="hero-divider">
+      <span></span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L9.8 6.2H16L10.9 10L12.7 16L8 12.2L3.3 16L5.1 10L0 6.2H6.2L8 0Z"/></svg>
+      <span></span>
+    </div>
+    <p class="hero-subtitle">"Where abandoned thoughts find eternal life."</p>
+    <p class="hero-desc">Every word deserves a place to rest. Poetic Graveyard is a comfort hub for writers across the globe—a sanctuary where thoughts are preserved, emotions are welcomed, and creativity finds a home. Because your words deserve a place, and your mind deserves equanimity.</p>
+    <div class="hero-buttons">
+      <a href="#submit" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Start Writing
+      </a>
+      <a href="#featured" class="btn-ghost">Explore Works</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Descend</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="categories-section" id="categories">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Browse by Form</p>
+      <h2 class="section-title">What Rests Here in <em>Ink & Shadow</em></h2>
+      <p class="section-subtitle">Every form of written expression has a home in this graveyard of beautiful thoughts. Poetry, stories, letters, confessions, and essays—all find their eternal resting place here.</p>
+    </div>
+
+    <div class="categories-grid">
+      <a class="cat-card reveal" href="#" onclick="showToast('Browsing Poetry...'); return false;">
+        <span class="cat-icon">📜</span>
+        <div class="cat-title">Poetry</div>
+        <div class="cat-desc">Verse that bleeds, whispers, and endures long after the poet's silence. Free form, sonnets, haiku.</div>
+        <div class="cat-count">2,847 works</div>
+      </a>
+      <a class="cat-card reveal" href="#" onclick="showToast('Browsing Short Stories...'); return false;">
+        <span class="cat-icon">📖</span>
+        <div class="cat-title">Short Stories</div>
+        <div class="cat-desc">Entire worlds compressed into moments. Fiction that lingers, that haunts, that illuminates.</div>
+        <div class="cat-count">1,203 works</div>
+      </a>
+      <a class="cat-card reveal" href="#" onclick="showToast('Browsing Letters...'); return false;">
+        <span class="cat-icon">💌</span>
+        <div class="cat-title">Letters Never Sent</div>
+        <div class="cat-desc">Words written for eyes that may never read them. To lost loves, absent parents, future selves.</div>
+        <div class="cat-count">892 works</div>
+      </a>
+      <a class="cat-card reveal" href="#" onclick="showToast('Browsing Midnight Thoughts...'); return false;">
+        <span class="cat-icon">🌙</span>
+        <div class="cat-title">Midnight Thoughts</div>
+        <div class="cat-desc">The unedited mind at 3am. Raw, unpolished, brutally honest reflections born from insomnia.</div>
+        <div class="cat-count">674 works</div>
+      </a>
+      <a class="cat-card reveal" href="#" onclick="showToast('Browsing Confessions...'); return false;">
+        <span class="cat-icon">🕯</span>
+        <div class="cat-title">Confessions</div>
+        <div class="cat-desc">Anonymous truths spoken into the void. The weight lifted by finally saying the unspeakable.</div>
+        <div class="cat-count">445 works</div>
+      </a>
+      <a class="cat-card reveal" href="#" onclick="showToast('Browsing Essays...'); return false;">
+        <span class="cat-icon">📚</span>
+        <div class="cat-title">Essays & Journals</div>
+        <div class="cat-desc">Personal meditations on grief, beauty, memory, longing. Thought laid bare without apology.</div>
+        <div class="cat-count">329 works</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Works -->
+<section class="featured-section" id="featured">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-label">Curated Selections</p>
+        <h2 class="section-title">Words That <em>Refused to Die</em></h2>
+      </div>
+      <a href="#" class="view-all" onclick="showToast('Loading all works...'); return false;">
+        View All Works →
+      </a>
+    </div>
+
+    <div class="masonry-grid">
+
+      <div class="work-card reveal">
+        <div class="work-card-cat">📜 Poetry</div>
+        <div class="work-card-title">On the Architecture of Forgetting</div>
+        <div class="work-card-excerpt">
+          There are rooms in the mind that seal themselves shut—not from grief, but from an economy of survival. We forget not by accident but by design.
+        </div>
+        <div class="work-card-footer">
+          <div class="work-author">
+            <div class="work-avatar">EV</div>
+            <span class="work-author-name">elara.voss</span>
+          </div>
+          <div class="work-meta">
+            <span class="work-time">3 min read</span>
+            <div class="work-actions">
+              <button class="action-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                214
+              </button>
+              <button class="action-btn" onclick="toggleSave(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-card-cat">💌 Letters Never Sent</div>
+        <div class="work-card-title">To The Version of You I Invented</div>
+        <div class="work-card-excerpt">
+          I fell in love with my idea of you before I ever knew the real you. Maybe that's the truest loneliness — mourning someone who never existed.
+        </div>
+        <div class="work-card-footer">
+          <div class="work-author">
+            <div class="work-avatar">OM</div>
+            <span class="work-author-name">orphic.moth</span>
+          </div>
+          <div class="work-meta">
+            <span class="work-time">5 min read</span>
+            <div class="work-actions">
+              <button class="action-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                389
+              </button>
+              <button class="action-btn" onclick="toggleSave(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-card-cat">🌙 Midnight Thoughts</div>
+        <div class="work-card-title">3:17am and I'm thinking about tectonic plates</div>
+        <div class="work-card-excerpt">
+          We talk about earthquakes like they're catastrophes, but really, they're just the earth admitting it can no longer hold the pressure.
+        </div>
+        <div class="work-card-footer">
+          <div class="work-author">
+            <div class="work-avatar">WS</div>
+            <span class="work-author-name">winter.still</span>
+          </div>
+          <div class="work-meta">
+            <span class="work-time">2 min read</span>
+            <div class="work-actions">
+              <button class="action-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                102
+              </button>
+              <button class="action-btn" onclick="toggleSave(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-card-cat">📖 Short Story</div>
+        <div class="work-card-title">The Museum of Almost</div>
+        <div class="work-card-excerpt">
+          The museum had no entrance fee. You simply had to have lost something — a chance, a person, a version of yourself you were certain you'd become.
+        </div>
+        <div class="work-card-footer">
+          <div class="work-author">
+            <div class="work-avatar">RK</div>
+            <span class="work-author-name">raven.k</span>
+          </div>
+          <div class="work-meta">
+            <span class="work-time">8 min read</span>
+            <div class="work-actions">
+              <button class="action-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                571
+              </button>
+              <button class="action-btn" onclick="toggleSave(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-card-cat">🕯 Confession</div>
+        <div class="work-card-title">Anonymous #4471</div>
+        <div class="work-card-excerpt">
+          I keep telling people I'm fine because saying otherwise requires an explanation I don't have the words for yet. The words are coming. I think.
+        </div>
+        <div class="work-card-footer">
+          <div class="work-author">
+            <div class="work-avatar">AN</div>
+            <span class="work-author-name">anonymous</span>
+          </div>
+          <div class="work-meta">
+            <span class="work-time">1 min read</span>
+            <div class="work-actions">
+              <button class="action-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                1,204
+              </button>
+              <button class="action-btn" onclick="toggleSave(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-card-cat">📚 Essay</div>
+        <div class="work-card-title">On Grief as a Second Language</div>
+        <div class="work-card-excerpt">
+          When my mother died, I discovered grief isn't a feeling — it's a literacy. You spend years learning to read the foreign alphabet of your own absence.
+        </div>
+        <div class="work-card-footer">
+          <div class="work-author">
+            <div class="work-avatar">CL</div>
+            <span class="work-author-name">cerulean.light</span>
+          </div>
+          <div class="work-meta">
+            <span class="work-time">12 min read</span>
+            <div class="work-actions">
+              <button class="action-btn" onclick="toggleLike(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                763
+              </button>
+              <button class="action-btn" onclick="toggleSave(this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Featured Writers -->
+<section class="writers-section" id="writers">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-label">The Voices Within</p>
+        <h2 class="section-title">Featured <em>Writers</em></h2>
+      </div>
+      <a href="#" class="view-all" onclick="showToast('Loading all writers...'); return false;">Discover All Writers →</a>
+    </div>
+
+    <div class="writers-grid">
+      <div class="writer-card reveal">
+        <div class="writer-avatar">E</div>
+        <div class="writer-name">Elara Voss</div>
+        <div class="writer-handle">@elara.voss</div>
+        <div class="writer-bio">"I write to survive the spaces between the words people don't say to me."</div>
+        <div class="writer-stats">
+          <div class="writer-stat">
+            <span class="writer-stat-num">47</span>
+            <span class="writer-stat-label">Works</span>
+          </div>
+          <div class="writer-stat">
+            <span class="writer-stat-num">2.1k</span>
+            <span class="writer-stat-label">Followers</span>
+          </div>
+        </div>
+        <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+      </div>
+
+      <div class="writer-card reveal">
+        <div class="writer-avatar">O</div>
+        <div class="writer-name">Orphic Moth</div>
+        <div class="writer-handle">@orphic.moth</div>
+        <div class="writer-bio">"Poetry is just the autobiography of someone who forgot they were writing fiction."</div>
+        <div class="writer-stats">
+          <div class="writer-stat">
+            <span class="writer-stat-num">31</span>
+            <span class="writer-stat-label">Works</span>
+          </div>
+          <div class="writer-stat">
+            <span class="writer-stat-num">1.4k</span>
+            <span class="writer-stat-label">Followers</span>
+          </div>
+        </div>
+        <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+      </div>
+
+      <div class="writer-card reveal">
+        <div class="writer-avatar">R</div>
+        <div class="writer-name">Raven K.</div>
+        <div class="writer-handle">@raven.k</div>
+        <div class="writer-bio">"I leave a piece of myself in every story. I've been in pieces for years now."</div>
+        <div class="writer-stats">
+          <div class="writer-stat">
+            <span class="writer-stat-num">22</span>
+            <span class="writer-stat-label">Works</span>
+          </div>
+          <div class="writer-stat">
+            <span class="writer-stat-num">3.8k</span>
+            <span class="writer-stat-label">Followers</span>
+          </div>
+        </div>
+        <button class="follow-btn following" onclick="toggleFollow(this)">Following</button>
+      </div>
+
+      <div class="writer-card reveal">
+        <div class="writer-avatar">C</div>
+        <div class="writer-name">Cerulean Light</div>
+        <div class="writer-handle">@cerulean.light</div>
+        <div class="writer-bio">"I'm trying to find language for the things grief made wordless."</div>
+        <div class="writer-stats">
+          <div class="writer-stat">
+            <span class="writer-stat-num">58</span>
+            <span class="writer-stat-label">Works</span>
+          </div>
+          <div class="writer-stat">
+            <span class="writer-stat-num">5.2k</span>
+            <span class="writer-stat-label">Followers</span>
+          </div>
+        </div>
+        <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Search -->
+<section class="search-section" id="search">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto;">
+      <p class="section-label" style="justify-content:center;">Find Your Words</p>
+      <h2 class="section-title">Search the <em>Archive</em></h2>
+    </div>
+
+    <div class="search-bar reveal">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search by title, author, feeling, or fragment..."
+        id="searchInput"
+        autocomplete="off"
+      >
+      <div class="search-suggestions" id="searchSuggestions"></div>
+    </div>
+
+    <div class="search-filters reveal">
+      <button class="filter-pill active" onclick="setFilter(this, 'all')">All</button>
+      <button class="filter-pill" onclick="setFilter(this, 'poetry')">Poetry</button>
+      <button class="filter-pill" onclick="setFilter(this, 'stories')">Stories</button>
+      <button class="filter-pill" onclick="setFilter(this, 'letters')">Letters</button>
+      <button class="filter-pill" onclick="setFilter(this, 'midnight')">Midnight Thoughts</button>
+      <button class="filter-pill" onclick="setFilter(this, 'confessions')">Confessions</button>
+    </div>
+  </div>
+</section>
+
+<!-- Submit -->
+<section class="submit-section" id="submit">
+  <div class="container">
+    <div class="submit-grid">
+      <div class="submit-left reveal">
+        <p class="section-label">Share Your Words</p>
+        <h2 class="section-title">Leave Something <em>Here</em></h2>
+        <h3>Your words deserve to live somewhere.</h3>
+        <p>Poetic Graveyard is a place for every voice — especially the ones that have been told to be quiet. Submit anonymously or under your pen name.</p>
+        <ul class="submit-features">
+          <li>Publish under a pen name or anonymously</li>
+          <li>Choose from 6 literary categories</li>
+          <li>Add a cover image to your piece</li>
+          <li>Save drafts before publishing</li>
+          <li>Tag your work for discovery</li>
+          <li>Receive community responses</li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <div class="form-group">
+          <label for="penName">Pen Name</label>
+          <input type="text" id="penName" placeholder="What name do you write under?">
+        </div>
+        <div class="form-group">
+          <label for="email">Email (private, never displayed)</label>
+          <input type="email" id="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" placeholder="What do you call this piece?">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="" disabled selected>Choose a form...</option>
+            <option value="poetry">📜 Poetry</option>
+            <option value="stories">📖 Short Stories</option>
+            <option value="letters">💌 Letters Never Sent</option>
+            <option value="midnight">🌙 Midnight Thoughts</option>
+            <option value="confessions">🕯 Confessions</option>
+            <option value="essays">📚 Essays & Journals</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="content">Your Writing</label>
+          <textarea id="content" placeholder="Begin here. There are no rules."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Tags</label>
+          <div class="tags-input" id="tagsInput" onclick="document.getElementById('tagField').focus()">
+            <div id="tagsContainer"></div>
+            <input type="text" id="tagField" placeholder="grief, love, memory..." onkeydown="handleTag(event)">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-draft" onclick="showToast('Draft saved ✓')">Save Draft</button>
+          <button class="btn-publish" onclick="handlePublish()">Publish Work</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Connect With Us -->
+<section class="connect-section" id="connect">
+  <div class="connect-inner reveal">
+    <p class="section-label" style="justify-content:center;">Connect With Us</p>
+    <h2 class="section-title" style="text-align:center;">Stay <em>Connected</em></h2>
+    <p class="connect-subtitle">
+      Follow the archive and its founder as Poetic Graveyard grows into a home for writers, poets, and forgotten words.
+    </p>
+    <div class="connect-buttons">
+      <a href="https://www.instagram.com/poeticgraveyard/" class="connect-btn" target="_blank" rel="noopener noreferrer">
+        <span class="btn-icon">📖</span> Poetic Graveyard Instagram
+      </a>
+      <a href="https://www.instagram.com/thetorturedshowgirl/" class="connect-btn" target="_blank" rel="noopener noreferrer">
+        <span class="btn-icon">🌹</span> Founder Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Community -->
+<section class="community-section" id="community">
+  <div class="container">
+    <div class="community-inner">
+      <div class="reveal">
+        <p class="section-label" style="justify-content:center;">Living in Our Pages</p>
+        <h2 class="section-title">A <em>Community</em> of Souls</h2>
+        <p class="section-subtitle" style="margin:0 auto; text-align:center;">
+          Thousands of writers and readers gather here to bury their beautiful thoughts and find that they are not alone in the dark.
+        </p>
+      </div>
+
+      <div class="community-stats reveal">
+        <div class="community-stat">
+          <span class="community-stat-num" data-count="6390">0</span>
+          <span class="community-stat-label">Published Works</span>
+        </div>
+        <div class="community-stat">
+          <span class="community-stat-num" data-count="2847">0</span>
+          <span class="community-stat-label">Writers</span>
+        </div>
+        <div class="community-stat">
+          <span class="community-stat-num" data-count="41200">0</span>
+          <span class="community-stat-label">Readers</span>
+        </div>
+      </div>
+
+      <div class="community-cta-group reveal">
+        <a href="#submit" class="btn-primary">Join the Graveyard</a>
+        <a href="#" class="btn-ghost" onclick="showToast('Opening Discord...'); return false;">Discord Community</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quote Band -->
+<div class="quote-band" id="about">
+  <p class="quote-text">"Some words die unheard. We bury them here, beneath ink and starlight, where they bloom in the dark."</p>
+  <p class="quote-attr">— The Poetic Graveyard Manifesto</p>
+</div>
+
+<!-- Founder Section -->
+<section class="founder-section" id="founder">
+  <div class="founder-inner reveal">
+    <div class="founder-avatar">A</div>
+    <p class="founder-role">Founder & Curator</p>
+    <h2 class="founder-name">Anshika</h2>
+    <p class="founder-bio">
+      The voice behind the graveyard. A writer, curator, and keeper of abandoned words — building a sanctuary where every unsaid thought finds its resting place.
+    </p>
+    <a href="https://www.instagram.com/thetorturedshowgirl/" class="founder-cta" target="_blank" rel="noopener noreferrer">
+      <span class="social-icon">✦</span> Follow the Founder
+    </a>
+  </div>
+</section>
+
+<!-- Stay Connected Section -->
+<section class="stay-connected-section" id="stay-connected">
+  <div class="stay-connected-inner reveal">
+    <div class="stay-connected-divider">
+      <span></span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+      </svg>
+      <span></span>
+    </div>
+    <h2 class="stay-connected-title">Stay Connected</h2>
+    <p class="stay-connected-desc">The archive continues beyond these pages. Follow our journey, discover new voices, and stay connected with the growing Poetic Graveyard community.</p>
+    <div class="stay-connected-buttons">
+      <a href="https://www.instagram.com/poeticgraveyard/" class="stay-connected-btn" target="_blank" rel="noopener noreferrer">
+        <span class="btn-icon">📖</span> Follow Poetic Graveyard
+      </a>
+      <a href="https://www.instagram.com/thetorturedshowgirl/" class="stay-connected-btn" target="_blank" rel="noopener noreferrer">
+        <span class="btn-icon">🌹</span> Follow the Founder
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Socials Section -->
+<section class="stay-connected-section" id="socials">
+  <div class="stay-connected-inner reveal">
+    <div class="stay-connected-divider">
+      <span></span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+      </svg>
+      <span></span>
+    </div>
+    <h2 class="stay-connected-title">Stay Connected</h2>
+    <p class="stay-connected-desc">Follow Poetic Graveyard and its founder as the archive continues to grow into a sanctuary for writers, poets, dreamers, and forgotten words.</p>
+    <div class="stay-connected-buttons">
+      <a href="https://www.instagram.com/poeticgraveyard/" class="stay-connected-btn" target="_blank" rel="noopener noreferrer">
+        <span class="btn-icon">📖</span> Poetic Graveyard Instagram
+      </a>
+      <a href="https://www.instagram.com/thetorturedshowgirl/" class="stay-connected-btn" target="_blank" rel="noopener noreferrer">
+        <span class="btn-icon">🌹</span> Founder Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">✦ Poetic Graveyard</div>
+      <p class="footer-tagline">"Some words die unheard. We bury them here."</p>
+       <div class="social-links">
+         <a href="https://www.instagram.com/poeticgraveyard/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">In</a>
+        <a href="#" class="social-link" aria-label="Discord" onclick="showToast('Opening Discord...'); return false;">Dc</a>
+        <a href="#" class="social-link" aria-label="Twitter" onclick="showToast('Opening Twitter...'); return false;">X</a>
+        <a href="#" class="social-link" aria-label="RSS" onclick="showToast('Opening RSS...'); return false;">∞</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#categories">Explore</a></li>
+        <li><a href="#writers">Writers</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#submit">Submit Work</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Categories</div>
+      <ul class="footer-links">
+        <li><a href="#">Poetry</a></li>
+        <li><a href="#">Short Stories</a></li>
+        <li><a href="#">Letters Never Sent</a></li>
+        <li><a href="#">Midnight Thoughts</a></li>
+        <li><a href="#">Confessions</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+       <li><a href="#">Accessibility</a></li>
+       </ul>
+       <div class="footer-extended-social">
+         <a href="https://www.instagram.com/poeticgraveyard/" class="footer-social-btn" target="_blank" rel="noopener noreferrer">
+           <span class="social-icon">◈</span> Instagram Archive
+         </a>
+         <a href="https://www.instagram.com/thetorturedshowgirl/" class="footer-social-btn" target="_blank" rel="noopener noreferrer">
+           <span class="social-icon">✦</span> Founder Instagram
+         </a>
+       </div>
+     </div>
+   </div>
+
+   <div class="footer-bottom">
+    <div class="footer-bottom-left">© 2026 Poetic Graveyard. A sanctuary, not a stage.</div>
+    <div class="footer-epitaph">"Every word buried here still breathes."</div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ══════════════════════════════════════════════
+  // POETIC GRAVEYARD — IMMERSIVE HERO ANIMATION
+  // ══════════════════════════════════════════════
+
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  const fogCanvas = document.getElementById('fog-canvas');
+  const fogCtx = fogCanvas.getContext('2d');
+
+  const isMobile = window.innerWidth < 769;
+  let W, H;
+  let mouseX = 0, mouseY = 0;
+  let targetMouseX = 0, targetMouseY = 0;
+  let time = 0;
+
+  // Literary quotes for popup
+  const literaryQuotes = [
+    { text: "There is no greater agony than bearing an untold story inside you.", attr: "— Maya Angelou" },
+    { text: "One must always be careful of books, and what is inside them, for words have the power to change us.", attr: "— Cassandra Clare" },
+    { text: "I took a deep breath and listened to the old brag of my heart: I am, I am, I am.", attr: "— Sylvia Plath" },
+    { text: "The most important things are the hardest to say, because words diminish them.", attr: "— Stephen King" },
+    { text: "She was a girl who knew how to be happy even when she was sad. And that's important.", attr: "— Marilyn Monroe" },
+    { text: "I write to give myself strength. I write to be the characters that I am not.", attr: "— Joss Whedon" },
+    { text: "Every secret of a writer's soul, every experience of his life, every quality of his mind is written large in his works.", attr: "— Virginia Woolf" },
+    { text: "Poetry is not a turning loose of emotion, but an escape from emotion.", attr: "— T.S. Eliot" },
+    { text: "I am not afraid of storms, for I am learning how to sail my ship.", attr: "— Louisa May Alcott" },
+    { text: "Words are, in my not-so-humble opinion, our most inexhaustible source of magic.", attr: "— J.K. Rowling" },
+  ];
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    fogCanvas.width = window.innerWidth;
+    fogCanvas.height = Math.round(window.innerHeight * 0.35);
+  }
+  resize();
+  window.addEventListener('resize', () => { resize(); initObjects(); });
+
+  document.addEventListener('mousemove', (e) => {
+    targetMouseX = (e.clientX / W - 0.5) * 2;
+    targetMouseY = (e.clientY / H - 0.5) * 2;
+  });
+
+  // ── DUST PARTICLES ──
+  class DustParticle {
+    constructor(initial = false) { this.reset(initial); }
+    reset(initial = false) {
+      this.x = Math.random() * W;
+      this.y = initial ? Math.random() * H : H + 5;
+      this.r = Math.random() * 1.6 + 0.3;
+      this.vy = -(Math.random() * 0.35 + 0.08);
+      this.vx = (Math.random() - 0.5) * 0.18;
+      this.alpha = Math.random() * 0.45 + 0.08;
+      this.fadeRate = Math.random() * 0.0005 + 0.00012;
+      this.hue = Math.random() > 0.65 ? '#C4677A' : (Math.random() > 0.5 ? '#e5e0dc' : '#E6D3A3');
+    }
+    update() {
+      this.y += this.vy; this.x += this.vx;
+      this.alpha -= this.fadeRate;
+      if (this.alpha <= 0 || this.y < -5) this.reset();
+    }
+    draw(c) {
+      c.save(); c.globalAlpha = this.alpha;
+      c.fillStyle = this.hue;
+      c.beginPath(); c.arc(this.x, this.y, this.r, 0, Math.PI * 2); c.fill();
+      c.restore();
+    }
+  }
+
+  // ── FLOATING OBJECT BASE ──
+  class FloatingObject {
+    constructor(type, initial = false) {
+      this.type = type;
+      this.hovered = false;
+      this.glowAlpha = 0;
+      this.reset(initial);
+    }
+    reset(initial = false) {
+      this.x = Math.random() * W;
+      this.y = initial ? Math.random() * H * 0.85 : H + 80;
+      this.scale = Math.random() * 0.5 + 0.5;
+      this.vy = -(Math.random() * 0.28 + 0.06);
+      this.vx = (Math.random() - 0.5) * 0.15;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotSpeed = (Math.random() - 0.5) * 0.004;
+      this.alpha = Math.random() * 0.32 + 0.09;
+      this.wobble = Math.random() * Math.PI * 2;
+      this.wobbleSpeed = Math.random() * 0.012 + 0.004;
+      this.wobbleAmp = Math.random() * 0.4 + 0.1;
+      this.parallaxDepth = Math.random() * 0.025 + 0.005;
+    }
+    update() {
+      this.y += this.vy;
+      this.x += this.vx + Math.sin(this.wobble) * this.wobbleAmp * 0.08;
+      this.wobble += this.wobbleSpeed;
+      this.rotation += this.rotSpeed;
+      // Mouse parallax
+      this.x += (targetMouseX * this.parallaxDepth * W * 0.15);
+      this.y += (targetMouseY * this.parallaxDepth * H * 0.08);
+      // Hover glow
+      const dx = mouseX - this.x, dy = mouseY - this.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      this.hovered = dist < 60 * this.scale;
+      this.glowAlpha += this.hovered ? 0.05 : -0.03;
+      this.glowAlpha = Math.max(0, Math.min(0.35, this.glowAlpha));
+      if (this.y < -100 || this.x < -150 || this.x > W + 150) this.reset();
+    }
+    drawGlow(c) {
+      // Warm ambient glow — candlelit library atmosphere
+      const ambientAlpha = 0.18;
+      const totalAlpha = Math.max(ambientAlpha, this.glowAlpha);
+      c.save();
+      c.globalAlpha = totalAlpha;
+      const grad = c.createRadialGradient(this.x, this.y, 0, this.x, this.y, 85 * this.scale);
+      grad.addColorStop(0, 'rgba(230, 211, 163, 0.55)');
+      grad.addColorStop(0.25, 'rgba(210, 170, 100, 0.30)');
+      grad.addColorStop(0.5, 'rgba(160, 100, 60, 0.12)');
+      grad.addColorStop(1, 'rgba(139, 30, 63, 0)');
+      c.fillStyle = grad;
+      c.beginPath();
+      c.arc(this.x, this.y, 70 * this.scale, 0, Math.PI * 2);
+      c.fill();
+      c.restore();
+    }
+  }
+
+  // ── BOOK ──
+  function drawBook(c, obj) {
+    c.save();
+    c.translate(obj.x, obj.y);
+    c.rotate(obj.rotation);
+    c.scale(obj.scale, obj.scale);
+    c.globalAlpha = obj.alpha;
+    const w = 36, h = 46, spine = 8;
+    // Shadow
+    c.fillStyle = 'rgba(0,0,0,0.15)';
+    c.fillRect(-w/2 + 3, -h/2 + 3, w + spine, h);
+    // Cover
+    c.fillStyle = '#3d1a10';
+    c.fillRect(-w/2, -h/2, w, h);
+    // Spine
+    c.fillStyle = '#2a100a';
+    c.fillRect(-w/2 - spine, -h/2, spine, h);
+    // Gold lines on cover
+    c.strokeStyle = 'rgba(184,150,90,0.5)';
+    c.lineWidth = 1;
+    c.strokeRect(-w/2 + 3, -h/2 + 4, w - 6, h - 8);
+    c.strokeRect(-w/2 + 6, -h/2 + 8, w - 12, h - 16);
+    // Pages edge
+    c.fillStyle = '#e8e0d8';
+    c.fillRect(w/2 - 3, -h/2 + 1, 3, h - 2);
+    c.restore();
+  }
+
+  // ── OPEN JOURNAL ──
+  function drawJournal(c, obj) {
+    c.save();
+    c.translate(obj.x, obj.y);
+    c.rotate(obj.rotation);
+    c.scale(obj.scale, obj.scale);
+    c.globalAlpha = obj.alpha;
+    const flutter = Math.sin(obj.wobble * 2.5) * 6;
+    const w = 44, h = 34;
+    // Left page
+    c.fillStyle = '#e0d8cc';
+    c.beginPath();
+    c.moveTo(-w, -h/2);
+    c.lineTo(0, -h/2 + flutter);
+    c.lineTo(0, h/2 + flutter * 0.3);
+    c.lineTo(-w, h/2);
+    c.closePath();
+    c.fill();
+    // Lines on left page
+    c.strokeStyle = 'rgba(100,80,60,0.2)';
+    c.lineWidth = 0.8;
+    for (let i = -12; i <= 12; i += 6) {
+      c.beginPath(); c.moveTo(-w + 4, i); c.lineTo(-4, i + flutter * 0.5); c.stroke();
+    }
+    // Right page
+    c.fillStyle = '#d8d0c4';
+    c.beginPath();
+    c.moveTo(0, -h/2 + flutter);
+    c.lineTo(w, -h/2);
+    c.lineTo(w, h/2);
+    c.lineTo(0, h/2 + flutter * 0.3);
+    c.closePath();
+    c.fill();
+    // Spine
+    c.fillStyle = '#8a6a40';
+    c.fillRect(-3, -h/2, 6, h + Math.abs(flutter));
+    c.restore();
+  }
+
+  // ── FOUNTAIN PEN ──
+  function drawPen(c, obj) {
+    c.save();
+    c.translate(obj.x, obj.y);
+    c.rotate(obj.rotation + Math.PI / 5);
+    c.scale(obj.scale, obj.scale);
+    c.globalAlpha = obj.alpha;
+    const len = 60, nib = 12;
+    // Body
+    const grad = c.createLinearGradient(-len/2, 0, len/2, 0);
+    grad.addColorStop(0, '#1a1614'); grad.addColorStop(0.5, '#3d3532'); grad.addColorStop(1, '#1a1614');
+    c.fillStyle = grad; c.beginPath();
+    c.ellipse(-len/2 + len*0.6, 0, len*0.6, 5, 0, 0, Math.PI * 2); c.fill();
+    // Gold band
+    c.fillStyle = '#b8965a'; c.fillRect(-4, -5, 8, 10);
+    // Cap
+    c.fillStyle = '#0a0806';
+    c.beginPath(); c.ellipse(len*0.35, 0, len*0.22, 4.5, 0, 0, Math.PI * 2); c.fill();
+    // Nib
+    c.fillStyle = '#c8c2bf';
+    c.beginPath(); c.moveTo(-len/2, -3); c.lineTo(-len/2 - nib, 0); c.lineTo(-len/2, 3); c.closePath(); c.fill();
+    // Ink drop
+    c.fillStyle = 'rgba(107,30,46,0.6)';
+    c.beginPath(); c.ellipse(-len/2 - nib - 4, 2, 2, 3, Math.PI/4, 0, Math.PI*2); c.fill();
+    c.restore();
+  }
+
+  // ── WAX LETTER ──
+  function drawLetter(c, obj) {
+    c.save();
+    c.translate(obj.x, obj.y);
+    c.rotate(obj.rotation);
+    c.scale(obj.scale, obj.scale);
+    c.globalAlpha = obj.alpha;
+    const w = 42, h = 32;
+    // Envelope body
+    c.fillStyle = '#c8b89a';
+    c.fillRect(-w/2, -h/2, w, h);
+    // Envelope flap V-shape
+    c.fillStyle = '#b0a080';
+    c.beginPath(); c.moveTo(-w/2, -h/2); c.lineTo(0, 2); c.lineTo(w/2, -h/2); c.closePath(); c.fill();
+    // Side folds
+    c.fillStyle = '#a09070';
+    c.beginPath(); c.moveTo(-w/2, -h/2); c.lineTo(-w/2, h/2); c.lineTo(0, 4); c.closePath(); c.fill();
+    c.beginPath(); c.moveTo(w/2, -h/2); c.lineTo(w/2, h/2); c.lineTo(0, 4); c.closePath(); c.fill();
+    // Wax seal
+    c.fillStyle = '#8b1a2a';
+    c.beginPath(); c.arc(0, 4, 8, 0, Math.PI*2); c.fill();
+    c.fillStyle = '#a03040';
+    c.beginPath(); c.arc(0, 4, 5, 0, Math.PI*2); c.fill();
+    // Seal initial
+    c.fillStyle = 'rgba(255,220,180,0.6)';
+    c.font = 'bold 7px serif'; c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.fillText('P', 0, 4);
+    c.restore();
+  }
+
+  // ── INK BOTTLE ──
+  function drawInkBottle(c, obj) {
+    c.save();
+    c.translate(obj.x, obj.y);
+    c.rotate(obj.rotation);
+    c.scale(obj.scale, obj.scale);
+    c.globalAlpha = obj.alpha;
+    // Bottle body
+    c.fillStyle = '#0d1a1a';
+    c.beginPath();
+    c.moveTo(-12, 10); c.lineTo(-14, -8); c.lineTo(-6, -14);
+    c.lineTo(6, -14); c.lineTo(14, -8); c.lineTo(12, 10); c.closePath(); c.fill();
+    // Neck
+    c.fillStyle = '#0d1a1a'; c.fillRect(-5, -22, 10, 10);
+    // Cap
+    c.fillStyle = '#4a3020'; c.fillRect(-6, -28, 12, 8); c.beginPath(); c.arc(0, -28, 6, Math.PI, 0); c.fill();
+    // Ink inside (dark teal/black)
+    c.fillStyle = 'rgba(20,40,40,0.8)';
+    c.beginPath();
+    c.moveTo(-11, 6); c.lineTo(-12, -4); c.lineTo(-5, -10);
+    c.lineTo(5, -10); c.lineTo(12, -4); c.lineTo(11, 6); c.closePath(); c.fill();
+    // Highlight
+    c.strokeStyle = 'rgba(100,140,130,0.3)'; c.lineWidth = 1.5;
+    c.beginPath(); c.moveTo(-10, -4); c.lineTo(-8, 4); c.stroke();
+    // Label
+    c.fillStyle = 'rgba(220,200,170,0.3)'; c.fillRect(-8, -5, 16, 10);
+    c.restore();
+  }
+
+  // ── QUILL FEATHER ──
+  function drawQuill(c, obj) {
+    c.save();
+    c.translate(obj.x, obj.y);
+    c.rotate(obj.rotation + Math.PI / 6);
+    c.scale(obj.scale, obj.scale);
+    c.globalAlpha = obj.alpha;
+    const flutter = Math.sin(obj.wobble * 3) * 3;
+    // Quill shaft
+    c.strokeStyle = '#d4c8a8'; c.lineWidth = 1.5;
+    c.beginPath(); c.moveTo(0, 38); c.lineTo(0, -38); c.stroke();
+    // Left vane
+    c.fillStyle = 'rgba(212,200,168,0.7)';
+    c.beginPath();
+    c.moveTo(0, -38);
+    c.bezierCurveTo(-20 + flutter, -10, -24 + flutter*0.5, 20, 0, 38);
+    c.closePath(); c.fill();
+    // Right vane
+    c.fillStyle = 'rgba(200,190,155,0.65)';
+    c.beginPath();
+    c.moveTo(0, -38);
+    c.bezierCurveTo(18 - flutter, -12, 22 - flutter*0.5, 18, 0, 38);
+    c.closePath(); c.fill();
+    // Vane lines
+    c.strokeStyle = 'rgba(150,130,90,0.25)'; c.lineWidth = 0.5;
+    for (let i = -28; i < 28; i += 5) {
+      c.beginPath(); c.moveTo(0, i);
+      c.lineTo(-14 + flutter * (i/40), i + 2); c.stroke();
+      c.beginPath(); c.moveTo(0, i);
+      c.lineTo(12 - flutter * (i/40), i + 2); c.stroke();
+    }
+    // Nib tip
+    c.strokeStyle = '#1a0a04'; c.lineWidth = 2;
+    c.beginPath(); c.moveTo(-3, 38); c.lineTo(0, 50); c.lineTo(3, 38); c.stroke();
+    c.restore();
+  }
+
+  // ── TORN MANUSCRIPT PAGE ──
+  function drawPage(c, obj) {
+    c.save();
+    c.translate(obj.x, obj.y);
+    c.rotate(obj.rotation);
+    c.scale(obj.scale, obj.scale);
+    c.globalAlpha = obj.alpha;
+    const flutter = Math.sin(obj.wobble * 2) * 4;
+    // Page shape (slightly irregular)
+    c.fillStyle = '#ddd4c0';
+    c.beginPath();
+    c.moveTo(-22, -32);
+    c.lineTo(20, -32 + flutter * 0.3);
+    c.lineTo(22 + flutter * 0.5, 28);
+    c.lineTo(-20, 32);
+    // Torn top edge
+    c.lineTo(-22, -32);
+    c.closePath(); c.fill();
+    // Torn edge detail
+    c.strokeStyle = 'rgba(150,120,80,0.4)'; c.lineWidth = 0.8;
+    c.beginPath();
+    for (let i = -22; i < 20; i += 5) {
+      c.moveTo(i, -32 + flutter * 0.3);
+      c.lineTo(i + 2, -32 + flutter * 0.3 - (Math.random() * 4 + 1));
+    }
+    c.stroke();
+    // Text lines
+    c.strokeStyle = 'rgba(80,60,40,0.15)'; c.lineWidth = 0.7;
+    for (let i = -20; i <= 18; i += 7) {
+      const wobbleLine = Math.sin(obj.wobble + i * 0.1) * 1.2;
+      c.beginPath();
+      c.moveTo(-17, i + wobbleLine); c.lineTo(16, i + wobbleLine + flutter * 0.1); c.stroke();
+    }
+    c.restore();
+  }
+
+  // ── ROSE ──
+  function drawRose(c, obj) {
+    c.save();
+    c.translate(obj.x, obj.y);
+    c.rotate(obj.rotation);
+    c.scale(obj.scale * 0.8, obj.scale * 0.8);
+    c.globalAlpha = obj.alpha;
+    // Petals
+    const petalColors = ['#6b1e2e','#7d2535','#8b2d42','#4a1320'];
+    for (let i = 0; i < 5; i++) {
+      c.save();
+      c.rotate((i / 5) * Math.PI * 2);
+      c.fillStyle = petalColors[i % petalColors.length];
+      c.globalAlpha = obj.alpha * 0.8;
+      c.beginPath();
+      c.ellipse(0, -12, 7, 12, 0, 0, Math.PI * 2); c.fill();
+      c.restore();
+    }
+    // Inner petals
+    for (let i = 0; i < 4; i++) {
+      c.save();
+      c.rotate((i / 4) * Math.PI * 2 + 0.4);
+      c.fillStyle = '#a03348';
+      c.globalAlpha = obj.alpha * 0.9;
+      c.beginPath();
+      c.ellipse(0, -8, 5, 8, 0, 0, Math.PI * 2); c.fill();
+      c.restore();
+    }
+    // Centre
+    c.fillStyle = '#4a1320'; c.globalAlpha = obj.alpha;
+    c.beginPath(); c.arc(0, 0, 4, 0, Math.PI * 2); c.fill();
+    // Stem
+    c.strokeStyle = '#2a4a20'; c.lineWidth = 2;
+    c.beginPath(); c.moveTo(0, 0); c.lineTo(0, 24); c.stroke();
+    c.restore();
+  }
+
+  // ── PETAL (falling) ──
+  class FallingPetal {
+    constructor(initial = false) { this.reset(initial); }
+    reset(initial = false) {
+      this.x = Math.random() * W;
+      this.y = initial ? Math.random() * H * 0.6 : -20;
+      this.vy = Math.random() * 0.6 + 0.2;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotSpeed = (Math.random() - 0.5) * 0.04;
+      this.wobble = Math.random() * Math.PI * 2;
+      this.alpha = Math.random() * 0.38 + 0.07;
+      this.scale = Math.random() * 0.5 + 0.3;
+    }
+    update() {
+      this.y += this.vy; this.x += this.vx + Math.sin(this.wobble) * 0.3;
+      this.wobble += 0.02; this.rotation += this.rotSpeed;
+      if (this.y > H + 20) this.reset();
+    }
+    draw(c) {
+      c.save(); c.translate(this.x, this.y);
+      c.rotate(this.rotation); c.scale(this.scale, this.scale);
+      c.globalAlpha = this.alpha;
+      c.fillStyle = '#8b2d42';
+      c.beginPath(); c.ellipse(0, 0, 6, 10, 0, 0, Math.PI * 2); c.fill();
+      c.restore();
+    }
+  }
+
+  // ── GRAVESTONE ──
+  function drawGravestone(c, x, y, scale, alpha) {
+    c.save(); c.translate(x, y); c.scale(scale, scale); c.globalAlpha = alpha;
+    const w = 30, h = 44;
+    // Stone body
+    c.fillStyle = '#1e1a18';
+    c.beginPath();
+    c.moveTo(-w/2, h/2); c.lineTo(-w/2, -h/2 + 10);
+    c.arc(0, -h/2 + 10, w/2, Math.PI, 0);
+    c.lineTo(w/2, h/2); c.closePath(); c.fill();
+    // Cross etching
+    c.strokeStyle = 'rgba(100,90,80,0.4)'; c.lineWidth = 1.2;
+    c.beginPath(); c.moveTo(0, -h/2 + 16); c.lineTo(0, -4); c.stroke();
+    c.beginPath(); c.moveTo(-8, -h/2 + 26); c.lineTo(8, -h/2 + 26); c.stroke();
+    // Base slab
+    c.fillStyle = '#141210';
+    c.fillRect(-w/2 - 5, h/2 - 4, w + 10, 6);
+    c.restore();
+  }
+
+  // ── COFFIN ──
+  function drawCoffin(c) {
+    c.save();
+    c.globalAlpha = 0.05;
+    c.translate(W * 0.5, H * 0.52);
+    const w = Math.min(W * 0.22, 200), h = Math.min(H * 0.55, 380);
+    c.fillStyle = '#1a0c08';
+    c.beginPath();
+    c.moveTo(-w * 0.4, -h / 2);
+    c.lineTo(w * 0.4, -h / 2);
+    c.lineTo(w / 2, -h * 0.25);
+    c.lineTo(w / 2, h * 0.32);
+    c.lineTo(w * 0.35, h / 2);
+    c.lineTo(-w * 0.35, h / 2);
+    c.lineTo(-w / 2, h * 0.32);
+    c.lineTo(-w / 2, -h * 0.25);
+    c.closePath();
+    c.fill();
+    // Lid line
+    c.strokeStyle = 'rgba(139,30,63,0.4)'; c.lineWidth = 1.5;
+    c.beginPath();
+    c.moveTo(-w * 0.4, -h / 2 + 2);
+    c.lineTo(w * 0.4, -h / 2 + 2);
+    c.lineTo(w / 2, -h * 0.24);
+    c.stroke();
+    // Cross
+    c.strokeStyle = 'rgba(212,176,122,0.3)'; c.lineWidth = 2;
+    c.beginPath(); c.moveTo(0, -h * 0.15); c.lineTo(0, h * 0.2); c.stroke();
+    c.beginPath(); c.moveTo(-w * 0.2, h * 0); c.lineTo(w * 0.2, h * 0); c.stroke();
+    c.restore();
+  }
+
+  // ── RAVEN ──
+  class Raven {
+    constructor() { this.reset(); }
+    reset() {
+      this.side = Math.random() > 0.5 ? 1 : -1;
+      this.x = this.side === 1 ? -100 : W + 100;
+      this.y = Math.random() * H * 0.45 + 60;
+      this.speed = Math.random() * 1.8 + 0.9;
+      this.scale = Math.random() * 0.6 + 0.5;
+      this.alpha = Math.random() * 0.3 + 0.08;
+      this.flapPhase = Math.random() * Math.PI * 2;
+      this.flapSpeed = Math.random() * 0.12 + 0.08;
+      this.waitTimer = Math.random() * 600 + 200;
+      this.active = false;
+    }
+    update() {
+      if (!this.active) { this.waitTimer--; if (this.waitTimer <= 0) this.active = true; return; }
+      this.x += this.speed * this.side;
+      this.flapPhase += this.flapSpeed;
+      if (this.x > W + 150 || this.x < -150) this.reset();
+    }
+    draw(c) {
+      if (!this.active) return;
+      c.save(); c.translate(this.x, this.y);
+      if (this.side === -1) c.scale(-1, 1);
+      c.scale(this.scale, this.scale);
+      c.globalAlpha = this.alpha;
+      c.fillStyle = '#0d0b0a';
+      const wingY = Math.sin(this.flapPhase) * 14;
+      // Body
+      c.beginPath(); c.ellipse(0, 0, 14, 7, 0, 0, Math.PI * 2); c.fill();
+      // Head
+      c.beginPath(); c.ellipse(-14, -4, 7, 6, -0.3, 0, Math.PI * 2); c.fill();
+      // Beak
+      c.beginPath(); c.moveTo(-20, -5); c.lineTo(-26, -4); c.lineTo(-20, -3); c.closePath(); c.fill();
+      // Left wing
+      c.beginPath();
+      c.moveTo(-5, 0); c.bezierCurveTo(-2, wingY - 20, 20, wingY - 28, 32, wingY - 10);
+      c.bezierCurveTo(20, wingY + 4, 0, 6, -5, 0); c.closePath(); c.fill();
+      // Tail
+      c.beginPath(); c.moveTo(12, 2); c.lineTo(24, 8); c.lineTo(20, 4); c.closePath(); c.fill();
+      c.restore();
+    }
+  }
+
+  // ── LIGHT RAY ──
+  function drawLightRays(c) {
+    c.save();
+    const dynamicAlpha = 0.05 + Math.sin(time * 0.008) * 0.015;
+    c.globalAlpha = dynamicAlpha;
+    const baseAngle = Math.sin(time * 0.004) * 0.06;
+    const cx = W * 0.5 + mouseX * 30, cy = H * 0.08 + Math.sin(time * 0.01) * 4;
+    for (let i = 0; i < 6; i++) {
+      const angle = -0.5 + i * 0.2 + baseAngle;
+      const len = H * 1.2;
+      const grad = c.createLinearGradient(cx, cy, cx + Math.sin(angle) * len, cy + Math.cos(angle) * len);
+      grad.addColorStop(0, 'rgba(220,200,155,0.6)');
+      grad.addColorStop(0.3, 'rgba(200,175,130,0.25)');
+      grad.addColorStop(1, 'rgba(200,185,140,0)');
+      c.fillStyle = grad;
+      c.beginPath();
+      c.moveTo(cx - 10, cy);
+      c.lineTo(cx + 10, cy);
+      c.lineTo(cx + Math.sin(angle) * len + 80, cy + Math.cos(angle) * len);
+      c.lineTo(cx + Math.sin(angle) * len - 80, cy + Math.cos(angle) * len);
+      c.closePath(); c.fill();
+    }
+    c.restore();
+  }
+
+  // ── FIREFLY PARTICLES ──
+  class FireflyParticle {
+    constructor(initial = false) { this.reset(initial); }
+    reset(initial = false) {
+      this.x = Math.random() * W;
+      this.y = initial ? Math.random() * H * 0.5 + H * 0.45 : H * 0.95 + Math.random() * 20;
+      this.r = Math.random() * 5 + 3;
+      this.baseR = this.r;
+      this.vy = -(Math.random() * 0.15 + 0.04);
+      this.vx = (Math.random() - 0.5) * 0.08;
+      this.alpha = Math.random() * 0.28 + 0.08;
+      this.pulseSpeed = Math.random() * 0.03 + 0.015;
+      this.pulsePhase = Math.random() * Math.PI * 2;
+      this.hue = Math.random() > 0.5 ? '#E6D3A3' : '#D4778A';
+    }
+    update() {
+      this.y += this.vy; this.x += this.vx + Math.sin(this.pulsePhase * 2) * 0.04;
+      this.pulsePhase += this.pulseSpeed;
+      this.alpha = Math.max(0.03, (0.22 + Math.sin(this.pulsePhase) * 0.1) * (this.baseR / 5));
+      this.r = this.baseR * (0.8 + Math.sin(this.pulsePhase) * 0.2);
+      if (this.y < H * 0.5 || this.x < -20 || this.x > W + 20) this.reset();
+    }
+    draw(c) {
+      c.save();
+      c.globalAlpha = this.alpha;
+      const grad = c.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 1.5);
+      grad.addColorStop(0, this.hue);
+      grad.addColorStop(0.3, this.hue);
+      grad.addColorStop(1, 'rgba(107,30,46,0)');
+      c.fillStyle = grad;
+      c.beginPath(); c.arc(this.x, this.y, this.r * 1.5, 0, Math.PI * 2); c.fill();
+      // Bright center
+      c.globalAlpha = this.alpha * 0.5;
+      c.fillStyle = '#fff8e0';
+      c.beginPath(); c.arc(this.x, this.y, this.r * 0.3, 0, Math.PI * 2); c.fill();
+      c.restore();
+    }
+  }
+
+  // ── SHOOTING STAR ──
+  class ShootingStar {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * W * 1.2 - W * 0.1;
+      this.y = Math.random() * H * 0.3 + 20;
+      this.vx = -(Math.random() * 4 + 2);
+      this.vy = Math.random() * 1 + 0.3;
+      this.alpha = Math.random() * 0.25 + 0.1;
+      this.length = Math.random() * 40 + 20;
+      this.waitTimer = Math.random() * 1200 + 400;
+      this.active = false;
+      this.trail = [];
+    }
+    update() {
+      if (!this.active) { this.waitTimer--; if (this.waitTimer <= 0) this.active = true; return; }
+      this.trail.push({ x: this.x, y: this.y });
+      if (this.trail.length > 12) this.trail.shift();
+      this.x += this.vx; this.y += this.vy;
+      this.alpha -= 0.003;
+      if (this.alpha <= 0 || this.x < -100 || this.y > H * 0.6) this.reset();
+    }
+    draw(c) {
+      if (!this.active || this.alpha <= 0) return;
+      c.save(); c.globalAlpha = this.alpha;
+      // Trail
+      for (let i = 1; i < this.trail.length; i++) {
+        const t = i / this.trail.length;
+        c.strokeStyle = `rgba(220,210,190,${t * this.alpha * 0.5})`;
+        c.lineWidth = t * 1.5 + 0.5;
+        c.beginPath(); c.moveTo(this.trail[i-1].x, this.trail[i-1].y);
+        c.lineTo(this.trail[i].x, this.trail[i].y); c.stroke();
+      }
+      // Head glow
+      const grad = c.createRadialGradient(this.x, this.y, 0, this.x, this.y, 10);
+      grad.addColorStop(0, 'rgba(255,250,230,0.8)');
+      grad.addColorStop(0.5, 'rgba(220,210,190,0.3)');
+      grad.addColorStop(1, 'rgba(220,210,190,0)');
+      c.fillStyle = grad;
+      c.beginPath(); c.arc(this.x, this.y, 10, 0, Math.PI * 2); c.fill();
+      c.restore();
+    }
+  }
+
+  // ── THORNY VINE ──
+  function drawThornyVine(c, x, y, side) {
+    c.save();
+    c.translate(x, y);
+    c.globalAlpha = 0.07 + Math.sin(time * 0.005 + (side === 'left' ? 0 : Math.PI)) * 0.01;
+    c.strokeStyle = '#2a1a10';
+    c.lineWidth = 2.5;
+    c.lineCap = 'round';
+    // Main vine curve
+    c.beginPath();
+    c.moveTo(0, 0);
+    const cpx = side === 'left' ? 40 + Math.sin(time * 0.01) * 10 : -40 - Math.sin(time * 0.01) * 10;
+    c.quadraticCurveTo(cpx * 0.5, -H * 0.15, 0, -H * 0.25);
+    c.stroke();
+    // Thorns
+    c.lineWidth = 1.5;
+    c.strokeStyle = '#3a2a18';
+    for (let i = 0; i < 5; i++) {
+      const ty = -H * 0.04 * (i + 1);
+      const tx = side === 'left' ? 8 + Math.sin(time * 0.008 + i) * 3 : -8 - Math.sin(time * 0.008 + i) * 3;
+      c.beginPath(); c.moveTo(tx * 0.3, ty); c.lineTo(tx * 1.5, ty - 5); c.lineTo(tx * 0.5, ty + 2); c.stroke();
+      c.beginPath(); c.moveTo(tx * 0.3, ty); c.lineTo(tx * 1.3, ty + 6); c.lineTo(tx * 0.5, ty + 2); c.stroke();
+    }
+    c.restore();
+  }
+
+  // ── FOG ──
+  const fogClouds = Array.from({ length: 8 }, (_, i) => ({
+    x: (i / 8) * fogCanvas.width,
+    y: Math.random() * fogCanvas.height * 0.7,
+    r: Math.random() * 130 + 90,
+    alpha: Math.random() * 0.10 + 0.04,
+    vx: (Math.random() - 0.5) * 0.18,
+    vy: (Math.random() - 0.5) * 0.06,
+  }));
+
+  // Second fog layer with burgundy tint (enhanced for candlelit atmosphere)
+  const burgundyFogClouds = Array.from({ length: 8 }, (_, i) => ({
+    x: (i / 8) * fogCanvas.width + Math.random() * 50,
+    y: Math.random() * fogCanvas.height * 0.5,
+    r: Math.random() * 180 + 120,
+    alpha: Math.random() * 0.09 + 0.04,
+    vx: (Math.random() - 0.5) * 0.12,
+    vy: (Math.random() - 0.5) * 0.04,
+  }));
+
+  function drawFog() {
+    fogCtx.clearRect(0, 0, fogCanvas.width, fogCanvas.height);
+
+    // Draw burgundy fog layer first (behind)
+    burgundyFogClouds.forEach(cloud => {
+      cloud.x += cloud.vx; cloud.y += cloud.vy;
+      if (cloud.x > fogCanvas.width + cloud.r) cloud.x = -cloud.r;
+      if (cloud.x < -cloud.r) cloud.x = fogCanvas.width + cloud.r;
+      cloud.y = Math.max(cloud.r * 0.3, Math.min(fogCanvas.height - cloud.r * 0.3, cloud.y));
+      const grad = fogCtx.createRadialGradient(cloud.x, cloud.y, 0, cloud.x, cloud.y, cloud.r);
+      grad.addColorStop(0, `rgba(156,40,72,${cloud.alpha})`);
+      grad.addColorStop(0.5, `rgba(139,30,63,${cloud.alpha * 0.4})`);
+      grad.addColorStop(1, 'rgba(139,30,63,0)');
+      fogCtx.fillStyle = grad;
+      fogCtx.beginPath();
+      fogCtx.arc(cloud.x, cloud.y, cloud.r, 0, Math.PI * 2);
+      fogCtx.fill();
+    });
+
+    // Draw main fog layer
+    fogClouds.forEach(cloud => {
+      cloud.x += cloud.vx; cloud.y += cloud.vy;
+      if (cloud.x > fogCanvas.width + cloud.r) cloud.x = -cloud.r;
+      if (cloud.x < -cloud.r) cloud.x = fogCanvas.width + cloud.r;
+      cloud.y = Math.max(cloud.r * 0.3, Math.min(fogCanvas.height - cloud.r * 0.3, cloud.y));
+      const grad = fogCtx.createRadialGradient(cloud.x, cloud.y, 0, cloud.x, cloud.y, cloud.r);
+      grad.addColorStop(0, `rgba(200,190,175,${cloud.alpha})`);
+      grad.addColorStop(0.6, `rgba(160,150,135,${cloud.alpha * 0.5})`);
+      grad.addColorStop(1, 'rgba(120,110,100,0)');
+      fogCtx.fillStyle = grad;
+      fogCtx.beginPath();
+      fogCtx.arc(cloud.x, cloud.y, cloud.r, 0, Math.PI * 2);
+      fogCtx.fill();
+    });
+
+    // Ground fog gradient
+    const fogGrad = fogCtx.createLinearGradient(0, fogCanvas.height * 0.3, 0, fogCanvas.height);
+    fogGrad.addColorStop(0, 'rgba(15,10,8,0)');
+    fogGrad.addColorStop(0.5, 'rgba(139,30,63,0.06)');
+    fogGrad.addColorStop(0.7, 'rgba(139,30,63,0.04)');
+    fogGrad.addColorStop(0.85, 'rgba(15,10,8,0.15)');
+    fogGrad.addColorStop(1, 'rgba(10,8,6,0.30)');
+    fogCtx.fillStyle = fogGrad;
+    fogCtx.fillRect(0, 0, fogCanvas.width, fogCanvas.height);
+  }
+
+  // ── OBJECT POOL ──
+  const objectTypes = isMobile
+    ? ['book', 'letter', 'dust', 'quill']
+    : ['book', 'book', 'journal', 'pen', 'letter', 'ink', 'quill', 'page', 'rose'];
+
+  let floatingObjects = [];
+  let dustParticles = [];
+  let fallingPetals = [];
+  let ravens = [];
+  let fireflies = [];
+  let shootingStars = [];
+
+  function initObjects() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    fogCanvas.width = W;
+    fogCanvas.height = Math.round(H * 0.35);
+
+    const objCount = isMobile ? 8 : 18;
+    floatingObjects = objectTypes.flatMap(t =>
+      Array.from({ length: Math.ceil(objCount / objectTypes.length) }, () =>
+        new FloatingObject(t, true)
+      )
+    ).slice(0, objCount);
+
+    dustParticles = Array.from({ length: isMobile ? 30 : 80 }, () => new DustParticle(true));
+    fallingPetals = isMobile ? [] : Array.from({ length: 12 }, () => new FallingPetal(true));
+    ravens = isMobile ? [] : [new Raven(), new Raven(), new Raven()];
+    fireflies = isMobile ? [] : Array.from({ length: 12 }, () => new FireflyParticle(true));
+    shootingStars = isMobile ? [] : [new ShootingStar(), new ShootingStar()];
+  }
+
+  // Draw dispatcher
+  function drawObject(c, obj) {
+    obj.drawGlow(c);
+    switch (obj.type) {
+      case 'book':    drawBook(c, obj); break;
+      case 'journal': drawJournal(c, obj); break;
+      case 'pen':     drawPen(c, obj); break;
+      case 'letter':  drawLetter(c, obj); break;
+      case 'ink':     drawInkBottle(c, obj); break;
+      case 'quill':   drawQuill(c, obj); break;
+      case 'page':    drawPage(c, obj); break;
+      case 'rose':    drawRose(c, obj); break;
+    }
+  }
+
+  // Main loop
+  function animate() {
+    time++;
+    // Smooth mouse
+    mouseX += (targetMouseX - mouseX) * 0.06;
+    mouseY += (targetMouseY - mouseY) * 0.06;
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Light rays
+    drawLightRays(ctx);
+
+    // Coffin (static, very low opacity)
+    drawCoffin(ctx);
+
+    // Gravestones along bottom
+    if (!isMobile) {
+      const graves = [
+        { x: W * 0.08, s: 0.9, a: 0.06 + Math.sin(time * 0.005) * 0.01 },
+        { x: W * 0.18, s: 1.2, a: 0.07 },
+        { x: W * 0.78, s: 1.0, a: 0.05 },
+        { x: W * 0.88, s: 0.85, a: 0.07 },
+        { x: W * 0.93, s: 1.1, a: 0.055 },
+      ];
+      graves.forEach(g => drawGravestone(ctx, g.x, H - 60 + Math.sin(time * 0.003 + g.x) * 2, g.s, g.a));
+    }
+
+    // Floating objects
+    floatingObjects.forEach(obj => {
+      obj.update();
+      drawObject(ctx, obj);
+    });
+
+    // Dust particles
+    dustParticles.forEach(p => { p.update(); p.draw(ctx); });
+
+    // Petals
+    fallingPetals.forEach(p => { p.update(); p.draw(ctx); });
+
+    // Fireflies (near bottom)
+    fireflies.forEach(p => { p.update(); p.draw(ctx); });
+
+    // Shooting stars
+    shootingStars.forEach(s => { s.update(); s.draw(ctx); });
+
+    // Ravens
+    ravens.forEach(r => { r.update(); r.draw(ctx); });
+
+    // Thorny vines at bottom corners
+    if (!isMobile) {
+      drawThornyVine(ctx, 0, H - 60, 'left');
+      drawThornyVine(ctx, W, H - 60, 'right');
+    }
+
+    // Fog (separate canvas)
+    drawFog();
+
+    requestAnimationFrame(animate);
+  }
+
+  // Click on canvas for book quote
+  canvas.addEventListener('click', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const cx = e.clientX - rect.left, cy = e.clientY - rect.top;
+    const hit = floatingObjects.find(obj => {
+      if (obj.type !== 'book' && obj.type !== 'journal') return false;
+      const dx = cx - obj.x, dy = cy - obj.y;
+      return Math.sqrt(dx*dx + dy*dy) < 35 * obj.scale;
+    });
+    if (hit) {
+      const q = literaryQuotes[Math.floor(Math.random() * literaryQuotes.length)];
+      document.getElementById('quoteText').textContent = q.text;
+      document.getElementById('quoteAttr').textContent = q.attr;
+      document.getElementById('quotePopup').classList.add('visible');
+    }
+  });
+
+  function closeQuote() {
+    document.getElementById('quotePopup').classList.remove('visible');
+  }
+
+  // Hover cursor feedback
+  canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const cx = e.clientX - rect.left, cy = e.clientY - rect.top;
+    const hitObj = floatingObjects.find(obj => {
+      const dx = cx - obj.x, dy = cy - obj.y;
+      return Math.sqrt(dx*dx + dy*dy) < 40 * obj.scale;
+    });
+    canvas.style.cursor = hitObj ? 'pointer' : 'default';
+  });
+
+  initObjects();
+  animate();
+  window.addEventListener('resize', () => { resize(); initObjects(); });
+
+  // ── NAV ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // ── INTERSECTION OBSERVER ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+        // Counters
+        e.target.querySelectorAll('[data-count]').forEach(el => {
+          animateCount(el, parseInt(el.dataset.count));
+        });
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── COUNT ANIMATION ──
+  function animateCount(el, target) {
+    let current = 0;
+    const duration = 1800;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current).toLocaleString();
+    }, 16);
+  }
+
+  // ── TOAST ──
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // ── LIKE / SAVE ──
+  function toggleLike(btn) {
+    btn.classList.toggle('liked');
+    const svgPath = btn.querySelector('path');
+    const numEl = btn.childNodes[btn.childNodes.length - 1];
+    const liked = btn.classList.contains('liked');
+    svgPath.setAttribute('fill', liked ? 'currentColor' : 'none');
+    showToast(liked ? '♥ Added to your loved works' : 'Removed from loved works');
+  }
+
+  function toggleSave(btn) {
+    btn.classList.toggle('liked');
+    const svgPath = btn.querySelector('path');
+    const saved = btn.classList.contains('liked');
+    svgPath.setAttribute('fill', saved ? 'currentColor' : 'none');
+    showToast(saved ? '🔖 Bookmarked' : 'Bookmark removed');
+  }
+
+  // ── FOLLOW ──
+  function toggleFollow(btn) {
+    const isFollowing = btn.classList.contains('following');
+    btn.classList.toggle('following');
+    btn.textContent = isFollowing ? 'Follow' : 'Following';
+    showToast(isFollowing ? 'Unfollowed' : 'Following this writer ✓');
+  }
+
+  // ── SEARCH ──
+  const suggestions = [
+    { type: 'Title', text: 'On the Architecture of Forgetting' },
+    { type: 'Author', text: 'elara.voss' },
+    { type: 'Tag', text: '#grief' },
+    { type: 'Title', text: 'Letters to a Ghost' },
+    { type: 'Tag', text: '#loneliness' },
+    { type: 'Author', text: 'orphic.moth' },
+    { type: 'Tag', text: '#love' },
+    { type: 'Title', text: 'The Museum of Almost' },
+  ];
+
+  const searchInput = document.getElementById('searchInput');
+  const searchSugg = document.getElementById('searchSuggestions');
+
+  searchInput.addEventListener('input', function() {
+    const val = this.value.toLowerCase().trim();
+    if (!val) { searchSugg.classList.remove('visible'); return; }
+    const matches = suggestions.filter(s => s.text.toLowerCase().includes(val));
+    if (!matches.length) { searchSugg.classList.remove('visible'); return; }
+    searchSugg.innerHTML = matches.slice(0, 5).map(s => `
+      <div class="suggestion-item" onclick="selectSuggestion('${s.text}')">
+        <span class="suggestion-type">${s.type}</span>
+        <span class="suggestion-text">${s.text}</span>
+      </div>
+    `).join('');
+    searchSugg.classList.add('visible');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-bar')) searchSugg.classList.remove('visible');
+  });
+
+  function selectSuggestion(text) {
+    searchInput.value = text;
+    searchSugg.classList.remove('visible');
+    showToast('Searching for: ' + text);
+  }
+
+  function setFilter(el, filter) {
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    showToast('Filter: ' + filter.charAt(0).toUpperCase() + filter.slice(1));
+  }
+
+  // ── TAGS ──
+  const tags = [];
+  function handleTag(e) {
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      const val = e.target.value.replace(',', '').trim();
+      if (val && !tags.includes(val) && tags.length < 8) {
+        tags.push(val);
+        renderTags();
+      }
+      e.target.value = '';
+    }
+  }
+
+  function removeTag(tag) {
+    const i = tags.indexOf(tag);
+    if (i > -1) tags.splice(i, 1);
+    renderTags();
+  }
+
+  function renderTags() {
+    const container = document.getElementById('tagsContainer');
+    container.innerHTML = tags.map(t =>
+      `<span class="tag">${t} <button onclick="removeTag('${t}')" type="button">×</button></span>`
+    ).join('');
+  }
+
+  // ── PUBLISH ──
+  function handlePublish() {
+    const pen = document.getElementById('penName').value.trim();
+    const title = document.getElementById('title').value.trim();
+    const content = document.getElementById('content').value.trim();
+    if (!pen || !title || !content) {
+      showToast('Please fill in all required fields');
+      return;
+    }
+    showToast('✦ Your work has been buried here. Thank you.');
+    setTimeout(() => {
+      document.getElementById('penName').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('title').value = '';
+      document.getElementById('content').value = '';
+      document.getElementById('category').value = '';
+      tags.length = 0;
+      renderTags();
+    }, 500);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit — Poetic Graveyard</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><span class="logo-icon">✦</span> Poetic Graveyard</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="explore.html">Explore</a></li>
+    <li><a href="categories.html">Categories</a></li>
+    <li><a href="writers.html">Writers</a></li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="submit.html" class="nav-cta">Submit Work</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="explore.html" onclick="closeMobile()">Explore</a>
+  <a href="categories.html" onclick="closeMobile()">Categories</a>
+  <a href="writers.html" onclick="closeMobile()">Writers</a>
+  <a href="community.html" onclick="closeMobile()">Community</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="submit.html" onclick="closeMobile()">Submit Work</a>
+</div>
+
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-content">
+    <p class="section-label" style="justify-content:center;">Share Your Words</p>
+    <h1>Submit Your <em>Work</em></h1>
+    <p>Your words deserve to live somewhere. Send us your poetry, stories, confessions, and midnight thoughts.</p>
+  </div>
+</div>
+
+<section class="submit-contact">
+  <div class="container">
+    <h2 class="reveal">How to <em>Submit</em></h2>
+    <p class="reveal">Send your work to our editorial team. We accept poetry, short stories, letters never sent, confessions, essays, journals, and midnight thoughts. Anonymous submissions are welcome.</p>
+
+    <div class="email-display reveal">
+      <span class="email-icon">✉</span>
+      <span>poeticgraveyard@gmail.com</span>
+    </div>
+
+    <div class="email-actions reveal">
+      <button class="btn-copy-email" onclick="copyEmail()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Email
+      </button>
+      <a href="mailto:poeticgraveyard@gmail.com" class="btn-mailto">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Open Email
+      </a>
+    </div>
+
+    <div class="about-content reveal" style="margin-top: 4rem; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <h2 style="text-align: center;">Submission Guidelines</h2>
+      <ul class="about-values">
+        <li>Submit in plain text format (no special formatting needed)</li>
+        <li>Include a title for your piece</li>
+        <li>Choose from: Poetry, Short Stories, Letters Never Sent, Confessions, Essays & Journals, Midnight Thoughts</li>
+        <li>You may use a pen name or submit anonymously</li>
+        <li>Tag your work for easier discovery (e.g., grief, love, memory)</li>
+        <li>Submissions are reviewed before being added to the archive</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="quote-band">
+  <p class="quote-text">"Some words die unheard. We bury them here, beneath ink and starlight, where they bloom in the dark."</p>
+  <p class="quote-attr">— The Poetic Graveyard Manifesto</p>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">✦ Poetic Graveyard</div>
+      <p class="footer-tagline">"Some words die unheard. We bury them here."</p>
+      <div class="social-links"><a href="https://www.instagram.com/poeticgraveyard/" class="social-link" target="_blank" rel="noopener noreferrer">In</a><a href="#" class="social-link">Dc</a><a href="#" class="social-link">X</a></div>
+    </div>
+    <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="explore.html">Explore</a></li><li><a href="writers.html">Writers</a></li><li><a href="community.html">Community</a></li><li><a href="submit.html">Submit Work</a></li></ul></div>
+    <div><div class="footer-col-title">Categories</div><ul class="footer-links"><li><a href="categories.html">Poetry</a></li><li><a href="categories.html">Short Stories</a></li><li><a href="categories.html">Letters Never Sent</a></li><li><a href="categories.html">Midnight Thoughts</a></li><li><a href="categories.html">Confessions</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="submit.html">Contact</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">© 2026 Poetic Graveyard. A sanctuary, not a stage.</div>
+    <div class="footer-epitaph">"Every word buried here still breathes."</div>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
