@@ -2,7 +2,7 @@
 
 *"Where abandoned and ephemeral thoughts find eternal life."*
 
-Poetic Graveyard is a dark-academia inspired digital sanctuary built for writers, poets, storytellers, and dreamers. It serves as a literary archive where poetry, short stories, letters never sent, confessions, essays, and midnight thoughts can find a permanent home.
+Poetic Graveyard is a dark-academia inspired digital sanctuary built for writers, poets, storytellers, and dreamers. It serves as a literary archive where poetry, short stories, letters never sent,[...]
 
 Each word deserves a beautiful place to rest in, this is a comfort hub for all the writers around the globe. For your thoughts deserve a place and your mind deserves equanimity.
 
@@ -12,14 +12,14 @@ Each word deserves a beautiful place to rest in, this is a comfort hub for all t
 
 Every word deserves a place to rest.
 
-Poetic Graveyard was created as a comfort hub for writers across the globe—a space where thoughts are preserved, emotions are welcomed, and creativity finds a home. Whether it's a poem written at midnight, a letter left unsent, or a story waiting to be discovered, every voice deserves an echo.
+Poetic Graveyard was created as a comfort hub for writers across the globe—a space where thoughts are preserved, emotions are welcomed, and creativity finds a home. Whether it's a poem written a[...]
 
 ---
 
 ## 📚 Categories
 
 * Poetry
-* Stories
+* Short Stories
 * Letters Never Sent
 * Confessions
 * Essays
@@ -92,10 +92,10 @@ Poetic Graveyard is a growing literary archive. Suggestions, improvements, and c
 
 Here are some ideas to get you started:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
+- 🔭 I'm currently working on ...
+- 🌱 I'm currently learning ...
+- 👯 I'm looking to collaborate on ...
+- 🤔 I'm looking for help with ...
 - 💬 Ask me about ...
 - 📫 How to reach me: ...
 - 😄 Pronouns: ...
