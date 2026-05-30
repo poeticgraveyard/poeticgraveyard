@@ -4,7 +4,7 @@
 
 Poetic Graveyard is a dark-academia inspired digital sanctuary built for writers, poets, storytellers, and dreamers. It serves as a literary archive where poetry, short stories, letters never sent, confessions, essays, and midnight thoughts can find a permanent home.
 
-Every piece is treated as a literary artifact—preserved with care, presented with elegance, and shared with those who seek beauty in the written word.
+Every word deserves a place to rest in, this is a comfort hub for all the writers around the globe. For your thoughts deserve a place and your mind deserves equanimity.
 
 ---
 
