@@ -55,7 +55,19 @@ document.addEventListener('click', function (e) {
 });
 
 // ── 1. SUBMISSIONS DATA STRUCTURE ──
-const submissions = [];
+const submissions = [
+  {
+    id: 1,
+    title: 'confession to my arsonist',
+    author: 'anshika',
+    category: 'confessions',
+    excerpt: 'It\'s hard to put in into words, how these sick little games keep making it worse',
+    content: 'It\'s hard to put in into words, how these sick little games keep making it worse\nIt\'s hard to put it in two words, it\'s a long long list babe it gets too much\nWhen you pull me closer, I can swear I forget the thorns on your silhouette\nWhen you kiss me it\'s torture, because it kills me to know I\'ve given myself over',
+    status: 'published',
+    featured: false,
+    date: new Date().toISOString()
+  }
+];
 
 function getWorksByCategory(category) {
   return submissions.filter(s => s.category === category && s.status === 'published');
@@ -341,7 +353,7 @@ function renderExplorePage() {
   if (!container) return;
   const works = getAllPublishedWorks();
   if (works.length === 0) {
-    container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📜</div><h3>No works have been published yet.</h3><p>The archive is waiting for its first literary offerings. Be the voice that breaks the silence.</p><a href="submit.html" class="btn-primary">Submit Your Work</a></div>';
+    container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📜</div><h3>No works have been published yet.</h3><p>The archive is waiting for its first literary offerings. Be the first to contribute.</p></div>';
     return;
   }
 }
@@ -359,7 +371,7 @@ function renderCategoriesPage() {
   ];
   container.innerHTML = categories.map(cat => {
     const count = getWorksByCategory(cat.slug).length;
-    return '<a class="cat-card" href="explore.html?category=' + cat.slug + '"><span class="cat-icon">' + cat.icon + '</span><div class="cat-title">' + cat.name + '</div><div class="cat-desc">' + cat.desc + '</div><div class="cat-count">' + (count > 0 ? count + ' works' : 'Awaiting submissions.') + '</div></a>';
+    return '<a class="cat-card" href="explore.html?category=' + cat.slug + '"><span class="cat-icon">' + cat.icon + '</span><div class="cat-title">' + cat.name + '</div><div class="cat-desc">' + cat.desc + '</div><div class="cat-count">' + count + ' work' + (count !== 1 ? 's' : '') + '</div></a>';
   }).join('');
 }
 
@@ -368,7 +380,7 @@ function renderWritersPage() {
   if (!container) return;
   const writers = getWriters();
   if (writers.length === 0) {
-    container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">✍</div><h3>Featured writers will appear here once submissions are approved.</h3><p>Every great archive begins with a single voice. Submit your work and become a founding writer.</p><a href="submit.html" class="btn-primary">Start Writing</a></div>';
+    container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">✍</div><h3>Featured writers will appear here once submissions are approved.</h3><p>Every great archive begins with silence before the first voice speaks.</p></div>';
     return;
   }
 }
@@ -378,7 +390,7 @@ function renderCommunityPage() {
   if (!container) return;
   const totalWorks = getAllPublishedWorks().length;
   if (totalWorks === 0) {
-    container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🕯</div><h3>This archive is waiting for its first voices.</h3><p>A community is not built by numbers — it is built by words, by vulnerability, by the courage to be read. Be the first.</p><a href="submit.html" class="btn-primary">Share Your Words</a></div>';
+    container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🕯</div><h3>This archive is waiting for its first voices.</h3><p>A community is not built by numbers — it is built by hearts willing to be vulnerable.</p></div>';
     return;
   }
 }
